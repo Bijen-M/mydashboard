@@ -614,9 +614,5 @@
   <script type="text/javascript" src="{{asset('js/main.min.js')}}"></script>
   <script type="text/javascript" src="{{asset('js/vertical-menu/vertical-menu.js')}}"></script>
   <script type="text/javascript" src="{{asset('js/jquery.nice-select.min.js')}}"></script>
-  {{-- <script type="text/javascript" src="{{asset('js/apex/apexcharts.js')}}"></script> --}}
-  {{-- <script type="text/javascript" src="{{asset('js/apex/chart-custom.js')}}"></script> --}}
-  {{-- <script type="text/javascript" src="{{asset('js/todo.js')}}"></script> --}}
-  {{-- <script type="text/javascript" src="{{asset('js/custom.js')}}"></script> --}}
 @endsection
 
