@@ -27,7 +27,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 //Admin Routes
 Route::prefix('admin')->middleware('auth')->group(function () {
     Route::controller(DashboardController::class)->group(function () {
-        Route::get('/dashboard', 'dashboard');
+        Route::get('/dashboard', 'dashboard')->name('dashboard');
+        Route::get('/cms-dashboard', 'cms_module')->name('cms.dashboard');
         // Route::post('/orders', 'store');
     });
 });
