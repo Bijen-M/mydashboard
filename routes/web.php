@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FrontController;
 
 /*
 |--------------------------------------------------------------------------
@@ -12,7 +14,21 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+//Front Routes
+Route::get('/', [FrontController::class, 'index'])->name('homepage');
 
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes();
+
+// Frontend routes
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+
+//Admin Routes
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::controller(DashboardController::class)->group(function () {
+        Route::get('/dashboard', 'dashboard')->name('dashboard');
+        Route::get('/cms-dashboard', 'cms_module')->name('cms.dashboard');
+        // Route::post('/orders', 'store');
+    });
 });
