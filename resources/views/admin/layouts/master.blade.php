@@ -40,7 +40,7 @@
     @endphp
         <div class="main-menu-content">
           <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation" data-icon-style="">
-            @include('admin.cms_module.layouts.common'. $sidebar)
+            @include('admin.layouts.common.'. $sidebar)
            
           </ul>
         </div>
