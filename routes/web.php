@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontController;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\PostsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +31,15 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::controller(DashboardController::class)->group(function () {
         Route::get('/dashboard', 'dashboard')->name('dashboard');
         Route::get('/cms-dashboard', 'cms_module')->name('cms.dashboard');
-        // Route::post('/orders', 'store');
+    });
+    Route::controller(MenuController::class)->group(function () {
+        Route::get('/manage-menus/{id?}', 'index')->name('menus');
+        Route::post('/create-menu', 'store')->name('menus.store');
+    });
+    Route::controller(PostsController::class)->group(function () {
+        // Route::get('/create', 'create')->name('post');
+        Route::get('/posts', 'index')->name('posts.index');
+        Route::get('/posts/create', 'postsCreate')->name('posts.create');
+        Route::post('/posts/submit', 'postsSubmit')->name('posts.submit');
     });
 });
