@@ -33,7 +33,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/cms-dashboard', 'cms_module')->name('cms.dashboard');
     });
     Route::controller(MenuController::class)->group(function () {
-        Route::get('/manage-menus/{id?}', 'index')->name('menus');
+        Route::get('/menus', 'index')->name('menus');
         Route::post('/create-menu', 'store')->name('menus.store');
     });
     Route::controller(PostsController::class)->group(function () {

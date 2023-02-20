@@ -7,6 +7,7 @@ use App\Models\Menu;
 use Illuminate\Http\Request;
 use App\Models\Posts;
 use Illuminate\Contracts\Session\Session;
+use App\Models\MenuItem;
 
 class MenuController extends Controller
 {
@@ -18,9 +19,9 @@ class MenuController extends Controller
         $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Menus</li>';
         $data['sidebar'] = 'cms_sidebar';
-        $data['categories'] = Category::all();
-        $data['posts'] = Posts::where('status', '1')->get();
-        $data['menus'] = Menu::all();
+        $data['menuItems'] = MenuItem::orderBy('order')->get();
+
+        // return view('menu.index', compact('menuItems'));
         return view('admin.cms_module.menu.menu', $data);
     }
 
