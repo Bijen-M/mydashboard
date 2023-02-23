@@ -1,0 +1,60 @@
+@font-face {
+    font-family: 'Century Gothic';
+    src: url('../fonts/theme/CenturyGothic.woff2') format('woff2'),
+        url('../fonts/theme/CenturyGothic.woff') format('woff'),
+        url('../fonts/theme/CenturyGothic.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Century Gothic';
+    src: url('../fonts/theme/CenturyGothic_1.woff2') format('woff2'),
+        url('../fonts/theme/CenturyGothic_1.woff') format('woff'),
+        url('../fonts/theme/CenturyGothic_1.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Century-Gothic';
+    src: url('../fonts/theme/CenturyGothic-Bold.woff2') format('woff2'),
+        url('../fonts/theme/CenturyGothic-Bold.woff') format('woff'),
+        url('../fonts/theme/CenturyGothic-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Century Gothic';
+    src: url('../fonts/theme/CenturyGothic_2.woff2') format('woff2'),
+        url('../fonts/theme/CenturyGothic_2.woff') format('woff'),
+        url('../fonts/theme/CenturyGothic_2.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Century-Gothic-b';
+    src: url('../fonts/theme/CenturyGothic-Bold_1.woff2') format('woff2'),
+        url('../fonts/theme/CenturyGothic-Bold_1.woff') format('woff'),
+        url('../fonts/theme/CenturyGothic-Bold_1.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Proxima Nova Rg';
+    src: url('../fonts/theme/ProximaNova-Regular.woff2') format('woff2'),
+        url('../fonts/theme/ProximaNova-Regular.woff') format('woff'),
+        url('../fonts/theme/ProximaNova-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

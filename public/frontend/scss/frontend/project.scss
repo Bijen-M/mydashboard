@@ -1,0 +1,36 @@
+.prd_filter_list{
+  .product_fig{
+    min-height: 22rem;
+  }
+}
+.project_control{
+  margin-bottom: 3rem;
+  text-align: center;
+  button{
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid transparent;
+    font-size: 1.8rem;
+    padding: 1rem;
+    font-weight: 600;
+  }
+}
+.project_control .mixitup-control-active{
+  color: $theme_color;
+  border-color: $theme_color;
+}
+// Project Detail //
+.project_top_infos{
+  margin: 4rem 0;
+}
+.project_info_list{
+  label{
+    font-weight: 600;
+    display: block;
+    font-size: 1.8rem;
+    margin-bottom: .6rem;
+  }
+}
+.project_figure_list{
+  margin-bottom: 4rem;
+}

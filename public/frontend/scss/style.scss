@@ -1,0 +1,42 @@
+// Bootstrap file Need Only //
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "bootstrap/functions";
+
+// 2. Include any default variable overrides here
+
+// 3. Include remainder of required Bootstrap stylesheets
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+// 4. Include any optional Bootstrap components as you like
+@import "bootstrap/root";
+@import "bootstrap/reboot";
+@import "bootstrap/type";
+@import "bootstrap/images";
+@import "bootstrap/containers";
+@import "bootstrap/grid";
+@import "bootstrap/bootstrap-utilities.scss";
+@import "bootstrap/dropdown";
+@import "bootstrap/tables";
+@import "bootstrap/modal";
+@import "bootstrap/buttons";
+@import "bootstrap/accordion";
+@import "bootstrap/transitions";
+@import "bootstrap/breadcrumb";
+@import "bootstrap/pagination";
+
+// Other Component Default //
+@import "frontend/variable";
+@import "frontend/mixin";
+@import "frontend/header";
+@import "frontend/footer";
+@import "frontend/meanmenu";
+@import "frontend/menu";
+@import "frontend/swiper";
+@import "frontend/project";
+@import "frontend/contact";
+@import "frontend/banner";
+@import "frontend/carer";
+@import "niceselect/nice-select.scss";
+@import "frontend/main";
+@import "frontend/media";

@@ -1,0 +1,35 @@
+.card_mid{
+    margin: 0 auto;
+}
+// Carrer Section //
+.accordion-button:focus{
+    box-shadow: initial;
+  }
+  .carrer_infos_list{
+    margin-bottom: 1.8rem;
+    h5{
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
+      color: $theme_color;
+    }
+    ul{
+      li{
+        font-weight: 400;
+        margin-bottom: .8rem;
+      }
+    }
+  }
+  .accordion-button:not(.collapsed){
+    background: $theme_color;
+    color:#fff;
+  }
+  .accordion-button{
+    color: $body_color;
+    font-size:1.6rem;
+    font-weight: 500;
+  }
+  .accordion-button:not(.collapsed)::after {
+    filter: brightness(0) invert(10);
+    opacity: 1;
+  }

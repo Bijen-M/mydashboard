@@ -1,0 +1,60 @@
+.header_menu{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 99;
+}
+.mobile_logo{
+  display: none;
+}
+.main-menu{
+  .navbar{
+    justify-content: space-between;
+  }
+}
+.menu_fixed{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #fff;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  z-index: 99;
+  .header_menu{
+    position: initial;
+  }
+}
+.menu_fixed .main-menu ul li a{
+  color: $body_color;
+  padding: 2rem 0.8rem;
+}
+.menu_fixed .main-menu .sub-menu li a{
+  padding: 1rem;
+}
+.desktop_logo{
+  img{
+    height: 4rem;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+}
+.menu_fixed .desktop_logo img{
+  filter: initial;
+}
+.mobile_logo{
+  img{
+    height: 4rem;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+  }
+}
+.menu_fixed .mobile_logo img{
+  filter: initial;
+}
+.open{
+  i{
+    color: #fff;
+  }
+}
+.menu_fixed .open i {
+  color: $body_color;
+}
