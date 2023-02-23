@@ -1,0 +1,9 @@
+@mixin border_radius(){
+  border-radius: .4rem;
+}
+@mixin box_shadow(){
+  box-shadow: 0 0 50px rgba(0,0,0,0.1);
+}
+@mixin transition(){
+  transition: all ease-in-out 1500ms;
+}

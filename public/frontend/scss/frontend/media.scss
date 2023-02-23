@@ -1,0 +1,168 @@
+@media only screen and (max-width: 479px) {
+  ul.navbar-nav {
+    display: none;
+  }
+  .container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
+    padding: 0 1.5rem;
+  }
+  .header_menu{
+    padding: .5rem 0;
+  }
+  .banner_infos h2{
+    font-size: 3rem;
+    line-height: 35px;
+  }
+  .about_right{
+    margin-top: 3rem;
+  }
+  .title_head h2{
+    font-size: 2rem;
+  }
+  .gettouch_section .row:after{
+    width: 100%;
+  }
+  .content_infos_contact {
+    padding: 0 2rem;
+    margin-top: 3rem;
+  }
+  .title_head {
+    flex-direction: column;
+    align-items: initial;
+    .view_btn{
+      margin-top: 2rem;
+    }
+  }
+  .construction_list {
+    padding: 0 1.5rem;
+  }
+  .construction_sec .row {
+    margin: 0 -1.5rem;
+  }
+  .product_fig{
+    min-height: 22rem;
+  }
+  .desktop_logo{
+    display: none;
+  }
+  .mobile_logo{
+    display: initial;
+  }
+  .contact_get_touch.gettouch_section .row:after{
+    width: 100%;
+  }
+  .image_section {
+    padding: 0 4rem;
+  }
+  .map_section iframe{
+    width: 100%;
+  }
+  .infos_contact {
+    margin-top: 4rem;
+  }
+  .contact_form{
+    margin-bottom: 2.5rem;
+  }
+  .project_info_list{
+    margin-bottom: 1.2rem;
+  }
+
+}
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  ul.navbar-nav {
+    display: none;
+  }
+  .container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
+    padding: 0 1.5rem;
+  }
+  .header_menu{
+    padding: .5rem 0;
+  }
+  .banner_infos h2{
+    font-size: 3rem;
+    line-height: 35px;
+  }
+  .about_right{
+    margin-top: 3rem;
+  }
+  .title_head h2{
+    font-size: 2rem;
+  }
+  .gettouch_section .row:after{
+    width: 100%;
+  }
+  .content_infos_contact {
+    padding: 0 2rem;
+    margin-top: 3rem;
+  }
+  .title_head {
+    flex-direction: column;
+    align-items: initial;
+    .view_btn{
+      margin-top: 2rem;
+    }
+  }
+  .construction_list {
+    padding: 0 1.5rem;
+  }
+  .construction_sec .row {
+    margin: 0 -1.5rem;
+  }
+  .desktop_logo{
+    display: none;
+  }
+  .mobile_logo{
+    display: initial;
+  }
+  .contact_get_touch.gettouch_section .row:after{
+    width: 100%;
+  }
+  .image_section {
+    padding: 0 4rem;
+  }
+  .map_section iframe{
+    width: 100%;
+  }
+  .infos_contact {
+    margin-top: 4rem;
+  }
+  .contact_form{
+    margin-bottom: 2.5rem;
+  }
+  .project_info_list{
+    margin-bottom: 1.2rem;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  ul.navbar-nav {
+    display: none;
+  }
+  .container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
+    padding: 0 1.5rem;
+  }
+  .header_menu{
+    padding: .5rem 0;
+  }
+  .desktop_logo{
+    display: none;
+  }
+  .mobile_logo{
+    display: initial;
+  }
+  
+
+
+}
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+
+  .container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
+    padding: 0 6rem;
+  }
+
+}
+
+@media only screen and (min-width: 1600px) and (max-width: 4000px) {
+  .container-fluid, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
+    padding: 0 6rem;
+  }
+}

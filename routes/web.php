@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutUsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontController;
@@ -42,4 +43,5 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/posts/create', 'postsCreate')->name('posts.create');
         Route::post('/posts/submit', 'postsSubmit')->name('posts.submit');
     });
+    Route::resource('about-us', AboutUsController::class);
 });
