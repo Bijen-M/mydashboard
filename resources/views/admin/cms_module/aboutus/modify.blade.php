@@ -29,25 +29,69 @@
                                 <label class="form__title">Subtitle</label><span class="astrick">*</span>
                                 <input type="text" @if (isset($currentdata)) value="{{ $currentdata->subtitle }}" @else value="{{ old('subtitle') }}" @endif name="subtitle"
                                     class="form-control" placeholder="Enter title">
-                                    <span class="text-danger">{{ $errors->first('title') }}</span>
+                                    <span class="text-danger">{{ $errors->first('subtitle') }}</span>
                             </div>
-                          
+                            <div class="form-group">
+                                <label class="form__title">Type</label>
+                                @if(isset($currentdata))
+                                <select id="selectField" class="form-control nice__select" name="type">
+                                    <option value="">-- Choose Select --</option>
+                                    
+                                        <option <?php if ($currentdata->type == '1') {
+                                            echo 'selected';
+                                        } ?> value="1"> About Us Section I  </option>
+                                        <option <?php if ($currentdata->type == '2') {
+                                            echo 'selected';
+                                        } ?> value="2"> About Us Section II </option>
+                                        <option <?php if ($currentdata->type == '3') {
+                                            echo 'selected';
+                                        } ?> value="3"> About Us Page Section(3 images) </option>
+                                </select>
+                                @else
+                                <select id="typeSelect" class="form-control nice__select" name="type">
+                                    <option value="">-- Choose Select --</option>
+                                        <option value="1"> About Us Section I </option>
+                                        <option value="2"> About Us Section II </option>
+                                        <option value="3"> About Us Page Section (3 images) </option>
+                                </select>
+                                @endif
+                                
+                            </div>
                             <div class="form-group">
                                 <label class="form__title">Description</label>
-                                <textarea rows="5" cols="5" @if (isset($currentdata)) value="{{ $currentdata->description }}" @else value="{{ old('description') }}" @endif name="description" class="form-control" placeholder="Message"></textarea>
+                                <textarea rows="5" cols="5" name="description" @if (isset($currentdata)) value="{{ $currentdata->description }}" @else value="{{ old('description') }}" @endif class="form-control" placeholder="Description">{{isset($currentdata) ? $currentdata->description : old('description')}}</textarea>
                                 <span class="text-danger">{{ $errors->first('description') }}</span>
                             </div>
-                            <div class="form-group">
-                                <label class="formTitle">Images <span class="astrick">*</span></label>
-                                <input type="file" name="image[]" class="d-block dropifys" placeholder="" multiple="multiple"/>
-                                    {{-- data-default-file="{{ isset($currentdata) ? $currentdata->getBannerImageUrl() : '' }}" multiple="multiple"/> --}}
-                                <span class="text-danger">{{ $errors->first('image') }}</span>
-                                <span class="text-danger">{{ $errors->first('image.*') }}</span>
-                            </div>
-                            {{-- <div class="form-group">
-                                <label for="images">Images</label>
-                                <input type="file" name="images[]" class="form-control-file" id="images" multiple required>
-                            </div> --}}
+                            @if (isset($currentdata))
+                                @if($currentdata->type == '3')
+                                    <div class="form-group" id="multiple-image1">
+                                        <label class="formTitle">Images <span class="astrick">*</span></label>
+                                        <input  type="file" name="image[]" class="d-block dropifys" placeholder=""  multiple="multiple"/>
+                                            {{-- data-default-file="{{ isset($currentdata) ? $currentdata->getBannerImageUrl() : '' }}" multiple="multiple"/> --}}
+                                        <span class="text-danger">{{ $errors->first('image') }}</span>
+                                        <span class="text-danger">{{ $errors->first('image.*') }}</span>
+                                    </div>
+                                @else
+                                    <div class="form-group" id="single-image1">
+                                        <label class="form__title">Image Upload</label>
+                                        <input type="file" name="image[]" id="input-file-now" data-default-file="{{ isset($currentdata) ? $currentdata-> getAboutUsImageUrl() : ''}}" class="dropify" />
+                                        <span class="text-danger">{{$errors->first('image')}}</span>
+                                    </div>
+                                @endif
+                            @else
+                                <div class="form-group" id="multiple-image">
+                                    <label class="formTitle">Images <span class="astrick">*</span></label>
+                                    <input  type="file" name="image[]" class="d-block dropifys" placeholder="" multiple="multiple"/>
+                                        {{-- data-default-file="{{ isset($currentdata) ? $currentdata->getBannerImageUrl() : '' }}" multiple="multiple"/> --}}
+                                    <span class="text-danger">{{ $errors->first('image') }}</span>
+                                    <span class="text-danger">{{ $errors->first('image.*') }}</span>
+                                </div>
+                                <div class="form-group" id="single-image">
+                                    <label class="form__title">Image Upload</label>
+                                    <input type="file" name="image[]" id="input-file-now" class="dropify" />
+                                    <span class="text-danger">{{$errors->first('image')}}</span>
+                                </div>
+                            @endif
                             <div class="mainBtn bntGrp btnLeft">
                                 <input type="submit" name="submit" value="{{(isset($currentdetail)?'Update':'submit')}}" class="btn-success">
                             </div>
@@ -64,6 +108,14 @@
     <script type="text/javascript" src="{{ asset('js/dropify/dropify.js')}}"></script>
     <script>
         $(document).ready(function(){
+            $('#multiple-image').hide();
+            // $('#single-image').hide();
+            $('#typeSelect').change(function() {
+                if ($(this).val() == '3') {
+                $('#multiple-image').show();
+                $('#single-image').hide();
+                } 
+            }); 
         // Basic
         $('.dropify').dropify();
 

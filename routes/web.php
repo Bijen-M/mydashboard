@@ -18,12 +18,13 @@ use App\Http\Controllers\PostsController;
 |
 */
 //Front Routes
-Route::get('/', [FrontController::class, 'index'])->name('homepage');
+Route::get('/', [FrontController::class, 'index'])->name('home');
 
 Auth::routes();
 
 // Frontend routes
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('no');
+Route::get('/about-us', [App\Http\Controllers\FrontController::class, 'aboutUs'])->name('aboutus');
 
 
 
