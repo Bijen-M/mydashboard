@@ -28,7 +28,14 @@
                 <tr>
                   <td>{{++$idx}}</td>
                   <td>{{ $aboutus->title }}</td>
-                  <td>{{ $aboutus->subtitle }}</td>
+                  <td>@if ($aboutus->type =='1')
+                      About Us Section I
+                      @elseif ($aboutus->type =='2')
+                      About Us Section II
+                      @else
+                      About Us Page section
+                      @endif
+                  </td>
                   <td>
                     <div class="table__btn">
                       <a href="{{ route('about-us.edit', $aboutus->id) }}" class="btn btn-sm bg-primary-transparent text-primary">

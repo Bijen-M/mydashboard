@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\AboutUs;
 use App\Models\AboutUsImages;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
 class AboutUsController extends Controller
 {
     /**
@@ -52,35 +52,48 @@ class AboutUsController extends Controller
     {
         $rules = [
             'title' => 'required',
-            'subtitle' => 'required',
             'image' => 'max:3',
             'image.*' => 'required|image|mimes:jpg,jpeg,png,gif,webp|max:2048',
+            'type' =>'required'
         ];
         $msg = [
             'title.required' => 'Title is required.',
-            'subtitle.required' => 'Category is required.',
             'phone_no.required' => 'Phone Number is required',
             'image.*.required' => 'At least one Image is required',
             'image.*.image' => 'File must be an image',
             'image.max' => 'Only a maximum of 3 images can be uploaded',
+            'type.required' => 'Type is required',
         ];
         $request->validate($rules, $msg);
         try {
             $data['title'] = $request->title;
             $data['subtitle'] = $request->subtitle;
             $data['description'] = $request->description;
+            $data['type'] = $request->type;
             $aboutUs = AboutUs::create($data);
-            if($request->file('image')){
-            $images = $request->file('image');
-            $upload_path = $aboutUs->getUploadPath();
-            foreach ($images as $image) {
-                $filename  = $image->getClientOriginalName();
-                $upload_path = $aboutUs->getUploadPath();
-                $aboutUs->aboutUsImages()->create(['image'=>$filename]);
-                $image->move($upload_path, $filename);
-        }
-    }
             
+            
+                if($request->file('image')){
+                    $images = $request->file('image');
+                    $upload_path = $aboutUs->getUploadPath();
+                    if($aboutUs->type == '3')
+                    {
+                        foreach ($images as $image) {
+                            $filename  = $image->getClientOriginalName();
+                            $aboutUs->aboutUsImages()->create(['image' => $filename]);
+                            $image->move($upload_path, $filename);
+                            }
+                    }
+                    else
+                    {
+                    //   dd($images);
+                        foreach ($images as $image) {
+                        $filename = $image->getClientOriginalName();
+                        $aboutUs->image = $filename;
+                        $image->move($upload_path, $filename);
+                     }
+                    }
+                }
             $aboutUs->save();
             \DB::commit();
             return back()->with('success_message', 'About us created successfully!!!');
@@ -130,13 +143,11 @@ class AboutUsController extends Controller
     {
         $rules = [
             'title' => 'required',
-            'subtitle' => 'required',
             'image' => 'max:3',
             'image.*' => 'required|image|mimes:jpg,jpeg,png,gif,webp|max:2048',
         ];
         $msg = [
             'title.required' => 'Title is required.',
-            'subtitle.required' => 'Subtitle is required.',
             'phone_no.required' => 'Phone Number is required',
             'image.*.required' => 'At least one Image is required',
             'image.*.image' => 'File must be an image',
@@ -148,25 +159,37 @@ class AboutUsController extends Controller
             $aboutUs = AboutUs::findOrFail($id);
 
             $aboutus_images = AboutUsImages::where('aboutus_id',$id)->get();
-            // dd($aboutus_images);
+            
+            
             if($request->file('image')){
                 foreach ( $aboutus_images as $image) {
-                    $image->removeAboutUsImage();
+                    $image->removeAboutUsImages();
                 }
-
-            $aboutUs->aboutUsImages()->delete();
-            $images = $request->file('image');
-            $upload_path = $aboutUs->getUploadPath(); 
-            foreach($images as $image) {
-                $filename  = $image->getClientOriginalName();
-                $upload_path = $aboutUs->getUploadPath();
-                $aboutUs->aboutUsImages()->create(['image'=> $filename]);
-                $image->move($upload_path, $filename);
+                $aboutUs->removeAboutUsImage();
+                $aboutUs->aboutUsImages()->delete();
+                $images = $request->file('image');
+                $upload_path = $aboutUs->getUploadPath(); 
+                if($aboutUs->type == '3')
+                {
+                    foreach($images as $image) {
+                        $filename  = $image->getClientOriginalName();
+                        $aboutUs->aboutUsImages()->create(['image'=> $filename]);
+                        $image->move($upload_path, $filename);
+                        }
+                }
+                else
+                {
+                    foreach ($images as $image) {
+                        $filename = $image->getClientOriginalName();
+                        $aboutUs->image = $filename;
+                        $image->move($upload_path, $filename);
+                    }
                 }
             }
             $aboutUs->title = $request->title;
             $aboutUs->subtitle = $request->subtitle;
             $aboutUs->description = $request->description;
+            $aboutUs->type = $request->type;
             $aboutUs->save();
             \DB::commit();
             return back()->with('success_message', 'About us updated successfully!!!');
