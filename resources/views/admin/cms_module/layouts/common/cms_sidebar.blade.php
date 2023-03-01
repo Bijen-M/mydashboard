@@ -40,6 +40,26 @@ $submenu = isset($submenu) ? $submenu : '';
     </li>
   </ul>
 </li> --}}
+<li class="nav-item {{($menu=='banner'?'has-sub sidebar-group-active open':'')}}">
+  <a href="{{ route('banners.index')}}">
+    <i class="ri-menu-3-line"></i>
+    <span class="menu-title">Banners</span>
+  </a>
+  <ul class="menu-content">
+    <li class="{{($menu=='banner' && $submenu=='index'? 'active':'')}}">
+      <a href="{{ route('banners.index')}}">
+        <i class=" "></i>
+        <span class="menu-item">All Banners</span>
+      </a>
+    </li>
+    <li  class="{{($menu=='banner' && $submenu=='create' ? 'active':'')}}">
+      <a href="{{route('banners.create')}}">
+        <i class=" "></i>
+        <span class="menu-item">Create New Banner</span>
+      </a>
+    </li>
+  </ul>
+</li>
 <li class="nav-item {{($menu=='posts'?'has-sub sidebar-group-active open':'')}}">
   <a href="{{ route('posts.index')}}">
     <i class="ri-menu-3-line"></i>

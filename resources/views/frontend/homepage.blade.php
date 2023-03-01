@@ -2,45 +2,34 @@
 
   
 @section('content')
-    <section class="banner_col">
-      <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper bannerSlider">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <figure>
-            <img src="images/slider.jpg" alt="title" class="w-100">
-            <div class="banner_content">
-              <div class="container">
-                <div class="banner_infos position-absolute">
-                  <div class="banner_title">
-                    <h2>Innovation start with a dream and a plan</h2>
-                  </div>
+    @if(count($banners)>0)
+      <section class="banner_col">
+        <div style="--swiper-navigation-color: #fff; --swiper-pagination-color: #fff" class="swiper bannerSlider">
+        <div class="swiper-wrapper">
+          @foreach ($banners as $banner)
+          <div class="swiper-slide">
+            <figure>
+              <img src="{{$banner->getBannerImageUrl()}}" alt="{{$banner->title}}" class="w-100">
+              <div class="banner_content">
+                <div class="container">
+                  <div class="banner_infos position-absolute">
+                    <div class="banner_title">
+                      <h2>{{$banner->title}}</h2>
+                    </div>
 
+                  </div>
                 </div>
               </div>
-            </div>
-          </figure>
-        </div>
-
-        <div class="swiper-slide">
-          <figure>
-            <img src="images/slider1.jpg" alt="title" class="w-100">
-            <div class="banner_content">
-              <div class="container">
-                <div class="banner_infos position-absolute">
-                  <div class="banner_title">
-                    <h2>Innovation start with a dream and a plan</h2>
-                  </div>
-  
-                </div>
-              </div>
-            </div>
-          </figure>
-        </div>
+            </figure>
+          </div>
+          @endforeach
         
+          
+        </div>
+        <div class="swiper-pagination"></div>
       </div>
-      <div class="swiper-pagination"></div>
-    </div>
-    </section>
+      </section>
+    @endif
 
     <main>
       <section id="about_us" class="about_us section_top">

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\AboutUs;
 use Illuminate\Http\Request;
-
+use App\Models\Banner;
 class FrontController extends Controller
 {
     protected $about_us_section_I=1;
@@ -16,6 +16,7 @@ class FrontController extends Controller
     {
         $data['aboutus_section_I'] = AboutUs::where('type',$this->about_us_section_I)->latest()->first();
         $data['aboutus_section_II'] = AboutUs::where('type',$this->about_us_section_II)->latest()->first();
+        $data['banners'] = Banner::where('status', '1')->get();
         return view('frontend.homepage', $data);
     }
 
