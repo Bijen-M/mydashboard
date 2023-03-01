@@ -12,48 +12,4 @@
         </li>
       </ul>
     </div>
-
-    <div class="main-menu-content">
-      <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation" data-icon-style="">
-
-        <li class="navigation-header"><span>Table</span></li>
-
-        <li class="navigation-header"><span>Menu</span></li>
-       
-        <li class=" nav-item">
-          <a href="#">
-            <i class="ri-menu-3-line"></i>
-            <span class="menu-title">Menu Levels</span>
-          </a>
-          <ul class="menu-content">
-            <li>
-              <a href="#">
-                <i class=" "></i>
-                <span class="menu-item">Second Level</span>
-              </a>
-            </li>
-            <li>
-              <a href="#"><i class=" "></i>
-                <span class="menu-item">Second Level</span>
-              </a>
-              <ul class="menu-content">
-                <li>
-                  <a href="#">
-                    <i class=" "></i>
-                    <span class="menu-item">Third Level</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <i class=" "></i>
-                    <span class="menu-item">Third Level</span>
-                  </a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </li>
-
-      </ul>
-    </div>
   </div>

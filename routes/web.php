@@ -6,6 +6,7 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FrontController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PostsController;
+use App\Http\Controllers\BannerController;
 
 /*
 |--------------------------------------------------------------------------
@@ -45,4 +46,5 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::post('/posts/submit', 'postsSubmit')->name('posts.submit');
     });
     Route::resource('about-us', AboutUsController::class);
+    Route::resource('banners', BannerController::class);
 });
