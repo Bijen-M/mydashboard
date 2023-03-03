@@ -67,6 +67,7 @@ class AboutUsController extends Controller
             'type.required' => 'Type is required',
         ];
         $request->validate($rules, $msg);
+        \DB::beginTransaction();
         try {
             $data['title'] = $request->title;
             $data['subtitle'] = $request->subtitle;
@@ -129,7 +130,7 @@ class AboutUsController extends Controller
         $data['submenu'] = 'edit';
         $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' ">CMS Dashboard</i></a></li>';
-        $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('about-us.index ') . ' ">All headings</i></a></li>';
+        $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('about-us.index') . ' ">All headings</i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Create New Heading</li>';
         $data['sidebar'] = 'cms_sidebar';
         $data['currentdata'] = AboutUs::findOrFail($id);
@@ -154,9 +155,10 @@ class AboutUsController extends Controller
             'title.required' => 'Title is required.',
             'phone_no.required' => 'Phone Number is required',
             'image.*.image' => 'File must be an image',
-            'image.max' => 'Only a maximum of 3 images can be uploaded',
+            'image.max:3' => 'Only a maximum of 3 images can be uploaded',
         ];
         $request->validate($rules, $msg);
+        \DB::beginTransaction();
         try {
             
             $aboutUs = AboutUs::findOrFail($id);

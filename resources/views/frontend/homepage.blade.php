@@ -149,6 +149,7 @@
         </div>
       </section>
 
+      @if (count($services)>0)
       <section id="services_section" class="services_sec section_top">
         <div class="container-fluid">
           <div class="title_head">
@@ -157,18 +158,20 @@
           </div>
 
           <div class="row">
+          @foreach ($services as $service)
+
             <div class="col* col-md-6 col-lg-3 service_list">
               <div class="service_block product_block">
-                <a href="service-detail.html">
+                <a href="{{route('service.detail', $service->slug)}}">
                   <div class="service_wrapper product_wrapper">
-                    <div class="service_fig product_fig" style="background:url(images/1.jpg) no-repeat;background-position: center center;background-size: cover;"></div>
+                    <div class="service_fig product_fig" style="background:url({{$service->getServiceImageUrl()}}) no-repeat;background-position: center center;background-size: cover;"></div>
                   </div>
                 </a>
 
                 <div class="service_infos_col product_infos_col">
                   <div class="service_infos_flex product_infos_flex">
                     <div class="service_info_left product_info_left">
-                      <h2><a href="service-detail.html">Architect</a></h2>
+                      <h2><a href="{{route('service.detail', $service->slug)}}">{{$service->title}}</a></h2>
                     </div>
                     <div class="service_info_right product_info_right">
                       <div class="service_line product_line"></div>
@@ -177,8 +180,9 @@
                 </div>
               </div>
             </div>
+            @endforeach
 
-            <div class="col* col-md-6 col-lg-3 service_list">
+            {{-- <div class="col* col-md-6 col-lg-3 service_list">
               <div class="service_block product_block">
                 <a href="service-detail.html">
                   <div class="service_wrapper product_wrapper">
@@ -239,11 +243,12 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> --}}
 
           </div>
         </div>
       </section>
+      @endif
 
       <section id="project_section" class="project_section section_top">
         <div class="container-fluid">
