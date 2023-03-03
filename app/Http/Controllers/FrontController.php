@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\AboutUs;
 use Illuminate\Http\Request;
 use App\Models\Banner;
+use App\Models\Image;
+use App\Models\Service;
+
 class FrontController extends Controller
 {
     protected $about_us_section_I=1;
@@ -17,6 +20,7 @@ class FrontController extends Controller
         $data['aboutus_section_I'] = AboutUs::where('type',$this->about_us_section_I)->latest()->first();
         $data['aboutus_section_II'] = AboutUs::where('type',$this->about_us_section_II)->latest()->first();
         $data['banners'] = Banner::where('status', '1')->get();
+        $data['services'] = Service::where('status', '1')->get();
         return view('frontend.homepage', $data);
     }
 
@@ -30,5 +34,15 @@ class FrontController extends Controller
         $data['aboutus_section_III'] = AboutUs::where('type',$this->about_us_page_multiple_images)->latest()->first();
       
         return view('frontend.aboutus',$data);
+    }
+
+    public function serviceDetail($slug)
+    {
+        $data['title'] = 'Services';
+        $data['breadcrumb'] = '<li class="breadcrumb-item"><a href=" ' . route('home') . ' ">Home</a></li>';
+        $data['breadcrumb'].= '<li class="breadcrumb-item active" aria-current="page">Service</li>';
+        $data['service'] = $service = Service::where('slug', $slug)->first();
+        $data['service_images'] = Image::where('fk_service',$service->id)->get();
+        return view('frontend.service_detail', $data);
     }
 }

@@ -100,3 +100,23 @@ $submenu = isset($submenu) ? $submenu : '';
     </li>
   </ul>
 </li>
+<li class="nav-item {{($menu=='services'?'has-sub sidebar-group-active open':'')}}">
+  <a href="{{ route('services.index')}}">
+    <i class="ri-menu-3-line"></i>
+    <span class="menu-title">Services</span>
+  </a>
+  <ul class="menu-content">
+    <li class="{{($menu=='services' && $submenu=='index'? 'active':'')}}">
+      <a href="{{ route('services.index')}}">
+        <i class=" "></i>
+        <span class="menu-item">All Services</span>
+      </a>
+    </li>
+    <li  class="{{($menu=='services' && $submenu=='create' ? 'active':'')}}">
+      <a href="{{route('services.create')}}">
+        <i class=" "></i>
+        <span class="menu-item">Create New Service</span>
+      </a>
+    </li>
+  </ul>
+</li>

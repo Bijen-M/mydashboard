@@ -112,7 +112,7 @@ class BannerController extends Controller
         $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' ">CMS Dashboard</i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('banners.index') . ' ">All Banners</i></a></li>';
-        $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Create New Banner</li>';
+        $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Edit Banner</li>';
         $data['sidebar'] = 'cms_sidebar';
         $data['currentdata'] = Banner::findOrFail($id);
         return view('admin.cms_module.banners.modify', $data);
@@ -137,6 +137,7 @@ class BannerController extends Controller
         ];
 
         $request->validate($rules, $msg);
+        \DB::beginTransaction();
         try {
             $banner = Banner::findOrFail($id);
         

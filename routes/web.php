@@ -7,6 +7,7 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\ServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ Auth::routes();
 // Frontend routes
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('no');
 Route::get('/about-us', [App\Http\Controllers\FrontController::class, 'aboutUs'])->name('aboutus');
+Route::get('/services/{slug}', [App\Http\Controllers\FrontController::class, 'serviceDetail'])->name('service.detail');
 
 
 
@@ -47,4 +49,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     });
     Route::resource('about-us', AboutUsController::class);
     Route::resource('banners', BannerController::class);
+    Route::resource('services', ServiceController::class);
+    Route::get('services/{service}/edit', [ServiceController::class,'edit'])->name('services.edit');
 });
