@@ -3,7 +3,7 @@
       <div class="overlay"></div>
       <div class="breadcrumb_content">
         <div class="container">
-          <h3>About Us</h3>
+          <h3>{{$title}}</h3>
           <nav aria-label="breadcrumb">
             <ol class="list-unstyled breadcrumb">
               {!! $breadcrumb !!}

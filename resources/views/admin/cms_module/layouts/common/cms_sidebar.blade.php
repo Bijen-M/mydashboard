@@ -120,3 +120,53 @@ $submenu = isset($submenu) ? $submenu : '';
     </li>
   </ul>
 </li>
+<li class="nav-item {{($menu=='projects'?'has-sub sidebar-group-active open':'')}}">
+  <a href="#">
+    <i class="ri-menu-3-line"></i>
+    <span class="menu-title">Projects</span>
+  </a>
+  <ul class="menu-content">
+    <li class="nav-item {{($menu=='projects'?'has-sub sidebar-group-active open':'')}}">
+      <a href="{{ route('services.index')}}">
+        <i class="ri-menu-3-line"></i>
+        <span class="menu-title">Projects</span>
+      </a>
+      <ul class="menu-content">
+        <li class="{{($menu=='projects' && $submenu=='index'? 'active':'')}}">
+          <a href="{{ route('projects.index')}}">
+            <i class=" "></i>
+            <span class="menu-item">All projects</span>
+          </a>
+        </li>
+        <li  class="{{($menu=='projects' && $submenu=='create' ? 'active':'')}}">
+          <a href="{{route('projects.create')}}">
+            <i class=" "></i>
+            <span class="menu-item">Create New Project</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <ul class="menu-content">
+  <li class="nav-item {{($menu=='projecttype'?'has-sub sidebar-group-active open':'')}}">
+    <a href="{{ route('project.type.index')}}">
+      <i class="ri-menu-3-line"></i>
+      <span class="menu-title">Project Types</span>
+    </a>
+    <ul class="menu-content">
+      <li class="{{($menu=='projecttype' && $submenu=='index'? 'active':'')}}">
+        <a href="{{ route('project.type.index')}}">
+          <i class=" "></i>
+          <span class="menu-item">All Project Types</span>
+        </a>
+      </li>
+      <li  class="{{($menu=='projecttype' && $submenu=='create' ? 'active':'')}}">
+        <a href="{{route('project.type.create')}}">
+          <i class=" "></i>
+          <span class="menu-item">Create Project Type</span>
+        </a>
+      </li>
+    </ul>
+  </li>
+  </ul>
+</li>

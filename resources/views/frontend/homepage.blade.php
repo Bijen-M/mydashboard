@@ -200,16 +200,16 @@
               <div class="project_block product_block">
                 <a href="project-detail.html">
                   <div class="project_wrapper product_wrapper">
-                    <div class="project_fig product_fig" style="background:url(images/3.jpg) no-repeat;background-position: center center;background-size: cover;"></div>
+                    <div class="project_fig product_fig" style="background:url({{$project_first->getProjectImageUrl()}}) no-repeat;background-position: center center;background-size: cover;"></div>
                   </div>
                 </a>
 
                 <div class="project_infos_col product_infos_col">
                   <div class="project_infos_flex product_infos_flex">
                     <div class="project_info_left product_info_left">
-                      <span class="product_head">New project</span>
-                      <h2><a href="project-detail.html">Modern Villa</a></h2>
-                      <span class="project_date">2022</span>
+                      <span class="product_head">{{$project_first->projectType->title}}</span>
+                      <h2><a href="project-detail.html">{{$project_first->title}}</a></h2>
+                      <span class="project_date">{{$project_first->year}}</span>
                     </div>
                     <div class="project_info_right product_info_right">
                       <div class="project_line product_line"></div>
@@ -224,9 +224,9 @@
                 <div class="project_infos_col product_infos_col">
                   <div class="project_infos_flex product_infos_flex">
                     <div class="project_info_left product_info_left">
-                      <span class="product_head">New project</span>
-                      <h2><a href="project-detail.html">Modern Villa</a></h2>
-                      <span class="project_date">2022</span>
+                      <span class="product_head">{{$project_second->projectType->title}}</span>
+                      <h2><a href="project-detail.html">{{$project_second->title}}</a></h2>
+                      <span class="project_date">{{$project_second->year}}</span>
                     </div>
                     <div class="project_info_right product_info_right">
                       <div class="project_line product_line"></div>
@@ -236,7 +236,7 @@
 
                 <a href="project-detail.html">
                   <div class="project_wrapper product_wrapper">
-                    <div class="project_fig product_fig" style="background:url(images/4.jpg) no-repeat;background-position: center center;background-size: cover;"></div>
+                    <div class="project_fig product_fig" style="background:url({{$project_second->getProjectImageUrl()}}) no-repeat;background-position: center center;background-size: cover;"></div>
                   </div>
                 </a>
 
@@ -246,16 +246,16 @@
               <div class="project_block product_block">
                 <a href="project-detail.html">
                   <div class="project_wrapper product_wrapper">
-                    <div class="project_fig product_fig" style="background:url(images/5.jpg) no-repeat;background-position: center center;background-size: cover;"></div>
+                    <div class="project_fig product_fig" style="background:url({{$project_third->getProjectImageUrl()}}) no-repeat;background-position: center center;background-size: cover;"></div>
                   </div>
                 </a>
 
                 <div class="project_infos_col product_infos_col">
                   <div class="project_infos_flex product_infos_flex">
                     <div class="project_info_left product_info_left">
-                      <span class="product_head">New project</span>
-                      <h2><a href="project-detail.html">Modern Villa</a></h2>
-                      <span class="project_date">2022</span>
+                      <span class="product_head">{{$project_third->projectType->title}}</span>
+                      <h2><a href="project-detail.html">{{$project_third->title}}</a></h2>
+                      <span class="project_date">{{$project_third->year}}</span>
                     </div>
                     <div class="project_info_right product_info_right">
                       <div class="project_line product_line"></div>
