@@ -1,7 +1,7 @@
 @extends('frontend.layouts.master')
 
-@include('frontend.layouts.common.breadcrumbs')
 @section('content')
+@include('frontend.layouts.common.breadcrumbs')
     <main>
       <section class="about_content">
         <div class="container-fluid">
