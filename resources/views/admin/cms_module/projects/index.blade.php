@@ -7,9 +7,44 @@
         <h3 class="cardHeaderFlex__title mb-0"> Projects </h3>
         <div class="cardHeaderFlex__btn">
           <a href="{{route('projects.create')}}"><button class="btn btn-md btn-info">New Project<i class="ri-edit-box-line"></i> </button></a>
+          <a href="#" class="btn btn-success" data-toggle="modal" data-target="#modalSelectCurrentProjects" data-backdrop="static" data-keyboard="false">
+            Select Current projects
+          </a>
+
+          
         </div>
       </div>
-
+      <div class="modal fade" id="modalSelectCurrentProjects" tabindex="-1" role="dialog" aria-labelledby="modalSelectCurrentProjects" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-zoom" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Modal sideout normal</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form action="{{ route('project.current.save') }}" method="POST">
+                @csrf
+                @foreach($projects as $project)
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" name="project[]" value="{{ $project->id }}">
+                  <label class="form-check-label" for="project-{{ $project->id }}">
+                    {{ $project->title }}
+                  </label>
+                </div>
+                @endforeach
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-primary">Save Selection</button>
+               
+                </div>
+              </form>
+            </div>
+           
+          </div>
+        </div>
+      </div>
       <div class="card-body">
         <div class="table-responsive">
           <table class="table table__center text-nowrap">

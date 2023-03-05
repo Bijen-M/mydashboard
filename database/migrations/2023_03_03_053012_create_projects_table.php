@@ -20,6 +20,7 @@ class CreateProjectsTable extends Migration
             $table->string('slug');
             $table->string('year');
             $table->text('description');
+            $table->boolean('is_current')->default(false);
             $table->string('architect');
             $table->string('coverimage')->nullable();
             $table->enum('status',[0,1])->default('1');

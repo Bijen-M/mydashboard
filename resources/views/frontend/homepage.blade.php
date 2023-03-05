@@ -68,25 +68,25 @@
           <div class="title_head">
             <h2>Current construction project</h2>
             <div class="view_btn">
-              <a href="#" class="btn btn_theme_outline">view all</a>
+              <a href="{{ route('projects.list') }}" class="btn btn_theme_outline">view all</a>
             </div>
           </div>
 
           <div class="row">
             <div class="col* col-md-6 col-lg-6 construction_list">
               <div class="construction_block product_block">
-                <a href="construction-detail.html">
+                <a href="{{ route('project.detail', $project_current_first->slug) }}">
                   <div class="construction_wrapper product_wrapper">
-                    <div class="construction_fig product_fig" style="background:url(images/1.jpg) no-repeat;background-position: center center;background-size: cover;"></div>
+                    <div class="construction_fig product_fig" style="background:url({{ $project_current_first->getProjectImageUrl()}}) no-repeat;background-position: center center;background-size: cover;"></div>
                   </div>
                 </a>
 
                 <div class="construction_infos_col product_infos_col">
                   <div class="construction_infos_flex product_infos_flex">
                     <div class="construction_info_left product_info_left">
-                      <span class="product_head">New Construction</span>
-                      <h2><a href="construction-detail.html">Contemporary prairie style</a></h2>
-                      <span class="construction_type">Arcen</span>
+                      <span class="product_head">{{ $project_current_first->projectType->title }}</span>
+                      <h2><a href="{{ route('project.detail', $project_current_first->slug) }}">{{ $project_current_first->title }}</a></h2>
+                      <span class="construction_type">{{ $project_current_first->architect }}</span>
                     </div>
                     <div class="construction_info_right product_info_right">
                       <div class="construction_line product_line"></div>
@@ -98,18 +98,18 @@
 
             <div class="col* col-md-6 col-lg-6 construction_list pt-8">
               <div class="construction_block product_block">
-                <a href="construction-detail.html">
+                <a href="{{ route('project.detail', $project_current_second->slug) }}">
                   <div class="construction_wrapper product_wrapper">
-                    <div class="construction_fig product_fig" style="background:url(images/2.jpg) no-repeat;background-position: center center;background-size: cover;"></div>
+                    <div class="construction_fig product_fig" style="background:url({{ $project_current_second->getProjectImageUrl()}}) no-repeat;background-position: center center;background-size: cover;"></div>
                   </div>
                 </a>
 
                 <div class="construction_infos_col product_infos_col">
                   <div class="construction_infos_flex product_infos_flex">
                     <div class="construction_info_left product_info_left">
-                      <span class="product_head">New Construction</span>
-                      <h2><a href="construction-detail.html">Contemporary prairie style</a></h2>
-                      <span class="construction_type">Arcen</span>
+                      <span class="product_head">{{ $project_current_second->projectType->title }}</span>
+                      <h2><a href="{{ route('project.detail', $project_current_second->slug) }}">{{ $project_current_second->projectType->title }}</a></h2>
+                      <span class="construction_type">{{ $project_current_second->projectType->title }}</span>
                     </div>
                     <div class="construction_info_right product_info_right">
                       <div class="construction_line product_line"></div>
@@ -191,14 +191,14 @@
           <div class="title_head">
             <h2>Recent Projects</h2>
             <div class="view_btn">
-              <a href="#" class="btn btn_theme_outline">view all project</a>
+              <a href="{{ route('projects.list') }}" class="btn btn_theme_outline">view all project</a>
             </div>
           </div>
 
           <div class="row align-items-center">
             <div class="col* col-md-6 col-lg-6 project_list">
               <div class="project_block product_block">
-                <a href="project-detail.html">
+                <a href="{{ route('project.detail', $project_first->slug) }}">
                   <div class="project_wrapper product_wrapper">
                     <div class="project_fig product_fig" style="background:url({{$project_first->getProjectImageUrl()}}) no-repeat;background-position: center center;background-size: cover;"></div>
                   </div>
@@ -208,7 +208,7 @@
                   <div class="project_infos_flex product_infos_flex">
                     <div class="project_info_left product_info_left">
                       <span class="product_head">{{$project_first->projectType->title}}</span>
-                      <h2><a href="project-detail.html">{{$project_first->title}}</a></h2>
+                      <h2><a href="{{ route('project.detail', $project_first->slug) }}">{{$project_first->title}}</a></h2>
                       <span class="project_date">{{$project_first->year}}</span>
                     </div>
                     <div class="project_info_right product_info_right">
@@ -225,7 +225,7 @@
                   <div class="project_infos_flex product_infos_flex">
                     <div class="project_info_left product_info_left">
                       <span class="product_head">{{$project_second->projectType->title}}</span>
-                      <h2><a href="project-detail.html">{{$project_second->title}}</a></h2>
+                      <h2><a href="{{ route('project.detail', $project_second->slug) }}">{{$project_second->title}}</a></h2>
                       <span class="project_date">{{$project_second->year}}</span>
                     </div>
                     <div class="project_info_right product_info_right">
@@ -234,7 +234,7 @@
                   </div>
                 </div>
 
-                <a href="project-detail.html">
+                <a href="{{ route('project.detail', $project_second->slug) }}">
                   <div class="project_wrapper product_wrapper">
                     <div class="project_fig product_fig" style="background:url({{$project_second->getProjectImageUrl()}}) no-repeat;background-position: center center;background-size: cover;"></div>
                   </div>
@@ -244,7 +244,7 @@
               </div>
 
               <div class="project_block product_block">
-                <a href="project-detail.html">
+                <a href="{{ route('project.detail', $project_third->slug) }}">
                   <div class="project_wrapper product_wrapper">
                     <div class="project_fig product_fig" style="background:url({{$project_third->getProjectImageUrl()}}) no-repeat;background-position: center center;background-size: cover;"></div>
                   </div>
@@ -254,7 +254,7 @@
                   <div class="project_infos_flex product_infos_flex">
                     <div class="project_info_left product_info_left">
                       <span class="product_head">{{$project_third->projectType->title}}</span>
-                      <h2><a href="project-detail.html">{{$project_third->title}}</a></h2>
+                      <h2><a href="{{ route('project.detail', $project_third->slug) }}">{{$project_third->title}}</a></h2>
                       <span class="project_date">{{$project_third->year}}</span>
                     </div>
                     <div class="project_info_right product_info_right">

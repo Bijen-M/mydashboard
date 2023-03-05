@@ -60,6 +60,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/project-type/{projecttype}/edit', 'projectTypeEdit')->name('project.type.edit');
         Route::post('/project-type/{projecttype}', 'projectTypeUpdate')->name('project.type.update');
         Route::delete('/project-type/{projecttype}', 'projectTypeDestroy')->name('project.type.destroy');
+        Route::post('/projects/select-current-projects', 'saveCurrentProjects')->name('project.current.save');
     });
     Route::resource('projects', ProjectController::class);
     Route::get('services/{service}/edit', [ServiceController::class,'edit'])->name('services.edit');
