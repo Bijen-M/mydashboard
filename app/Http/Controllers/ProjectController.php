@@ -412,4 +412,19 @@ class ProjectController extends Controller
             return back()->with('error_message', $e->getMessage());
         }
     }
+
+    public function saveCurrentProjects(Request $request)
+    {
+        $projectIds = $request->input('project');
+        if (count($projectIds) !== 2) {
+            return redirect()->back()->with('error_message', 'Please select a maximum of two projects');
+        }
+        $projects = Project::whereIn('id', $projectIds)->get();
+        Project::where('is_current', true)->update(['is_current' => false]);
+        foreach ($projects as $project) {
+            $project->is_current = true;
+            $project->save();
+        }
+        return redirect()->back()->with('success_message', 'Current projects updated successfully.');
+    }
 }

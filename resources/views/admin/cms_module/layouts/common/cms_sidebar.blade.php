@@ -42,7 +42,7 @@ $submenu = isset($submenu) ? $submenu : '';
 </li> --}}
 <li class="nav-item {{($menu=='banner'?'has-sub sidebar-group-active open':'')}}">
   <a href="{{ route('banners.index')}}">
-    <i class="ri-menu-3-line"></i>
+    <i class="ri-image-line"></i>
     <span class="menu-title">Banners</span>
   </a>
   <ul class="menu-content">
@@ -82,7 +82,7 @@ $submenu = isset($submenu) ? $submenu : '';
 </li>
 <li class="nav-item {{($menu=='about-us'?'has-sub sidebar-group-active open':'')}}">
   <a href="{{ route('about-us.index')}}">
-    <i class="ri-menu-3-line"></i>
+    <i class="ri-file-info-line"></i>
     <span class="menu-title">About Us</span>
   </a>
   <ul class="menu-content">
@@ -102,7 +102,7 @@ $submenu = isset($submenu) ? $submenu : '';
 </li>
 <li class="nav-item {{($menu=='services'?'has-sub sidebar-group-active open':'')}}">
   <a href="{{ route('services.index')}}">
-    <i class="ri-menu-3-line"></i>
+    <i class="ri-service-line"></i>
     <span class="menu-title">Services</span>
   </a>
   <ul class="menu-content">
@@ -122,13 +122,13 @@ $submenu = isset($submenu) ? $submenu : '';
 </li>
 <li class="nav-item {{($menu=='projects'?'has-sub sidebar-group-active open':'')}}">
   <a href="#">
-    <i class="ri-menu-3-line"></i>
+    <i class="ri-briefcase-line"></i>
     <span class="menu-title">Projects</span>
   </a>
   <ul class="menu-content">
     <li class="nav-item {{($menu=='projects'?'has-sub sidebar-group-active open':'')}}">
       <a href="{{ route('services.index')}}">
-        <i class="ri-menu-3-line"></i>
+        <i class="ri-briefcase-line"></i>
         <span class="menu-title">Projects</span>
       </a>
       <ul class="menu-content">

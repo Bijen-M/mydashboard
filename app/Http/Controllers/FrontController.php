@@ -26,6 +26,8 @@ class FrontController extends Controller
         $data['project_first'] = Project::where('status', '1')->latest()->take(1)->first();
         $data['project_second'] = Project::where('status', '1')->latest()->skip(1)->take(1)->first();
         $data['project_third'] = Project::where('status', '1')->latest()->skip(2)->take(1)->first();
+        $data['project_current_first'] = Project::where('status', '1')->where('is_current','1')->first();
+        $data['project_current_second'] = Project::where('status', '1')->where('is_current','1')->skip(1)->first();
         return view('frontend.homepage', $data);
     }
 
