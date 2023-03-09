@@ -170,3 +170,17 @@ $submenu = isset($submenu) ? $submenu : '';
   </li>
   </ul>
 </li>
+<li class="nav-item {{($menu=='contactus'?'has-sub sidebar-group-active open':'')}}">
+  <a href="{{ route('contactus.index')}}">
+    <i class="ri-service-line"></i>
+    <span class="menu-title">Contact Us</span>
+  </a>
+  <ul class="menu-content">
+    <li class="{{($menu=='contactus' && $submenu=='index'? 'active':'')}}">
+      <a href="{{ route('contactus.index')}}">
+        <i class=" "></i>
+        <span class="menu-item">All Contacts</span>
+      </a>
+    </li>
+  </ul>
+</li>

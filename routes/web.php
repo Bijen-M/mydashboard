@@ -7,6 +7,7 @@ use App\Http\Controllers\FrontController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PostsController;
 use App\Http\Controllers\BannerController;
+use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ProjectController;
 
@@ -31,6 +32,8 @@ Route::get('/about-us', [App\Http\Controllers\FrontController::class, 'aboutUs']
 Route::get('/services/{slug}', [App\Http\Controllers\FrontController::class, 'serviceDetail'])->name('service.detail');
 Route::get('/projects', [App\Http\Controllers\FrontController::class, 'projectList'])->name('projects.list');
 Route::get('/projects/{slug}', [App\Http\Controllers\FrontController::class, 'projectDetail'])->name('project.detail');
+Route::get('/contact-us', [App\Http\Controllers\FrontController::class, 'contactUs'])->name('contact.us');
+Route::post('/contact-us', [App\Http\Controllers\FrontController::class, 'contactUsStore'])->name('contact.us.store');
 
 
 
@@ -63,5 +66,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::post('/projects/select-current-projects', 'saveCurrentProjects')->name('project.current.save');
     });
     Route::resource('projects', ProjectController::class);
+    Route::resource('contactus', ContactUsController::class);
     Route::get('services/{service}/edit', [ServiceController::class,'edit'])->name('services.edit');
 });

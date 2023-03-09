@@ -282,7 +282,7 @@
               <div class="content_infos_contact">
                 <p>Do you have building plans or do you want to know more about building costs? Let's get acquainted!</p>
                 <div class="theme_btn">
-                  <a href="contact.html"><span>Get In Touch</span><i class="bi bi-arrow-right"></i></a>
+                  <a href="{{ route('contact.us') }}"><span>Get In Touch</span><i class="bi bi-arrow-right"></i></a>
                 </div>
               </div>
 
