@@ -47,6 +47,7 @@
                                             echo 'selected';
                                         } ?> value="3"> About Us Page Section(3 images) </option>
                                 </select>
+
                                 @else
                                 <select id="typeSelect" class="form-control nice__select" name="type">
                                     <option value="">-- Choose Select --</option>
@@ -55,7 +56,7 @@
                                         <option value="3"> About Us Page Section (3 images) </option>
                                 </select>
                                 @endif
-                                
+                                <span class="text-danger">{{ $errors->first('type') }}</span>
                             </div>
                             <div class="form-group">
                                 <label class="form__title">Description</label>

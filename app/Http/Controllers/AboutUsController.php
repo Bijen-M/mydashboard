@@ -52,18 +52,23 @@ class AboutUsController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request->all());
         $rules = [
             'title' => 'required',
-            'image' => 'max:3',
             'image.*' => 'required|image|mimes:jpg,jpeg,png,gif,webp|max:2048',
+            // 'image' => 'max:3',
+            // 'image' => 'min:1',
+            // 'image.*' => 'required|image|mimes:jpg,jpeg,png,gif,webp|max:2048',
             'type' =>'required'
         ];
         $msg = [
             'title.required' => 'Title is required.',
             'phone_no.required' => 'Phone Number is required',
+            'image.required' => 'Images is required',
             'image.*.required' => 'At least one Image is required',
             'image.*.image' => 'File must be an image',
             'image.max' => 'Only a maximum of 3 images can be uploaded',
+            'image.min' => 'At least one image should be uploaded',
             'type.required' => 'Type is required',
         ];
         $request->validate($rules, $msg);
