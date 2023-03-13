@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -22,6 +23,7 @@ class DashboardController extends Controller
         $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">CMS Dashboard</li>';
         $data['sidebar'] = 'cms_sidebar';
+        $data['projects'] = Project::where('status','1')->get();
         
 
         return view('admin.cms_module.cms_dashboard', $data);

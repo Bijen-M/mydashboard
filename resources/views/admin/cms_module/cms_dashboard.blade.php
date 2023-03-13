@@ -9,7 +9,7 @@
                     <div class="dashboard__box dashboard__c1">
                         <div class="dashboard__infos">
                             <span class="sub__title">Projects</span>
-                            <h5 class="dashboard__count">1200</h5>
+                            <h5 class="dashboard__count">{{ count($projects) }}</h5>
                             <p>Total order for last 20 days</p>
                         </div>
 
