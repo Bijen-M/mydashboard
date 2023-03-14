@@ -6,7 +6,7 @@
       <div class="card-header cardHeaderFlex">
         <h3 class="cardHeaderFlex__title mb-0">Vacancy</h3>
         <div class="cardHeaderFlex__btn">
-          <a href="{{route('vacancy.create')}}"><button class="btn btn-md btn-info">New Banner<i class="ri-edit-box-line"></i> </button></a>
+          <a href="{{route('vacancy.create')}}"><button class="btn btn-md btn-info">New Vacancy<i class="ri-edit-box-line"></i> </button></a>
         </div>
       </div>
 
