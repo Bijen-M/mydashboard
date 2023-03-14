@@ -172,7 +172,7 @@ $submenu = isset($submenu) ? $submenu : '';
 </li>
 <li class="nav-item {{($menu=='contactus'?'has-sub sidebar-group-active open':'')}}">
   <a href="{{ route('contactus.index')}}">
-    <i class="ri-service-line"></i>
+    <i class="ri-contacts-book-line"></i>
     <span class="menu-title">Contact Us</span>
   </a>
   <ul class="menu-content">
@@ -180,6 +180,26 @@ $submenu = isset($submenu) ? $submenu : '';
       <a href="{{ route('contactus.index')}}">
         <i class=" "></i>
         <span class="menu-item">All Contacts</span>
+      </a>
+    </li>
+  </ul>
+</li>
+<li class="nav-item {{($menu=='vacancy'?'has-sub sidebar-group-active open':'')}}">
+  <a href="{{ route('vacancy.index')}}">
+    <i class="ri-file-list-line"></i>
+    <span class="menu-title">Vacancy</span>
+  </a>
+  <ul class="menu-content">
+    <li class="{{($menu=='vacancy' && $submenu=='index'? 'active':'')}}">
+      <a href="{{ route('vacancy.index')}}">
+        <i class=" "></i>
+        <span class="menu-item">All Vacancy</span>
+      </a>
+    </li>
+    <li class="{{($menu=='vacancy' && $submenu=='create'? 'active':'')}}">
+      <a href="{{ route('vacancy.create')}}">
+        <i class=" "></i>
+        <span class="menu-item">Create Vacancy</span>
       </a>
     </li>
   </ul>

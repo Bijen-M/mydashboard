@@ -11,6 +11,7 @@ use App\Models\Image;
 use App\Models\Service;
 use App\Models\Project;
 use App\Models\ProjectType;
+use App\Models\Vacancy;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
@@ -90,39 +91,18 @@ class FrontController extends Controller
 
     public function contactUsStore(Request $request)
     {
-        // return response()->json(['success' => 'Message sent successfully! We\'ll contact you soon.']);
         $validator = Validator::make($request->all(),[
             'full_name' => 'required',
             'email' => 'required|email:rfc,dns',
             'subject' => 'required',
         ]);
-        // dd('here');
-        // $rules = [
-        //     'full_name' => 'required',
-        //     'email' => 'required|email:rfc,dns',
-        //     'subject' => 'required',
-        // ];
-        // $msg = [
-        //     'full_name.required' => 'Name is required.',
-        //     'full_name.unique' => 'Service has already been created',
-        //     'email.required' => 'Email is required.',
-        //     'subject.required' => 'Subject is required.'
-        // ];
-
-        // $request->validate($rules, $msg);
         if($validator->fails()){
             return response()->json([
                 'error' => $validator->errors()->all()
             ]);
         }
-        // \DB::beginTransaction();
+        \DB::beginTransaction();
         try {
-            // $data['full_name'] = $request->full_name;
-            // $data['email'] = $request->email;
-            // $data['status'] = $request->status;
-            // $data['subject'] = $request->subject;
-            // $data['description'] = $request->description;
-            // $contactUs = ContactUs::create($data);
             ContactUs::create([
                 'full_name' => $request->full_name,
                 'subject' => $request->subject,
@@ -138,13 +118,21 @@ class FrontController extends Controller
         ];
     
         Mail::to('bzn1992@gmail.com')->send(new ContactEmail($details));
-            // \DB::commit();
-            // return back()->with('success_message', 'Message sent successfully! We\'ll contact you soon.');
+            \DB::commit();
         return response()->json(['success' => 'Message sent successfully! We\'ll contact you soon.']);
         } catch (\Exception $e) {
-            // \DB::rollback();
+            \DB::rollback();
             return response()->json(['error' => $e->getMessage()]);
-            // return back()->with('error_message', $e->getMessage());
+            
         }
+    }
+
+    public function vacancy()
+    {
+        $data['title'] = 'Vacancy';
+        $data['breadcrumb'] = '<li class="breadcrumb-item"><a href=" ' . route('home') . ' ">Home</a></li>';
+        $data['breadcrumb'].= '<li class="breadcrumb-item active" aria-current="page">Vacancy</li>';
+        $data['vacancies'] = Vacancy::where('status','1')->get();
+        return view('frontend.vacancy', $data);
     }
 }

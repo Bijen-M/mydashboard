@@ -1,7 +1,8 @@
 @extends('frontend.layouts.master')
 @section('header_resources')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
   {{-- <link rel="stylesheet" type="text/css" href="css/remixicon.css"> --}}
-  <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
+  {{-- <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}"> --}}
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 @endsection
 @section('content')
@@ -53,7 +54,7 @@
             <div class="col* col-md-6 col-lg-6 contact_left">
               <div class="contact_form">
                 {{-- <form action="{{ route('contact.us.store')}}" method="POST"> --}}
-                  <form>
+                  <form id="contactForm">
                   @csrf
                   <div class="row">
                     <div class="col* col-md-6 col-lg-6">
@@ -115,56 +116,59 @@
 <script type="text/javascript" src="{{ asset('js/toastr/toastr.js') }}"></script>
 <script type="text/javascript">
 
-$.ajaxSetup({
-    headers: {
-        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-    }
-});
+$(document).ready(function(){
 
-$("#submitbtn").click(function(e){
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
 
-    e.preventDefault();
+            $('#contactForm').submit(function(e){
 
-    let full_name = $('#name').val();
-    let email = $('#email').val();
-    let subject = $('#subject').val();
-    let description = $('#description').val();
-    console.log(name);
-    console.log(email);
-    console.log(subject);
-    console.log(description);
-    const url = '{{route('contact.us.store')}}';
-    $.ajax({
-        url: "{{ route('contact.us.store') }}",
-        type: 'POST',
-        data: {
-          "_token": "{{ csrf_token() }}",
-            full_name: full_name,
-            email: email,
-            subject: subject,
-            description: description
-        },
-        success: function(data){
-          // console.log(data.message);
-            if(data['success']){
-              toastr.success(data['success']);
-            }
-            else if (data['error']) {
-              $.each(data.error, function(index, msg){
-                toastr.error(msg);
-              })
-              // toastr.error(data['error']);
-          } else {
-              toastr.error('Whoops Something went wrong!!');
-          }
-            
+                e.preventDefault();
 
-        },
-        error: function (data) {
-              toastr.error(data.error);
-        }
-    });
+                let full_name = $('#name').val();
+                let email = $('#email').val();
+                let subject = $('#subject').val();
+                let description = $('#description').val();
+                const url = '{{route('contact.us.store')}}';
+                $.ajax({
+                    url: "{{ route('contact.us.store') }}",
+                    type: 'POST',
+                    data: {
+                      "_token": "{{ csrf_token() }}",
+                        full_name: full_name,
+                        email: email,
+                        subject: subject,
+                        description: description
+                    },
+                    success: function(data){
+                      // console.log(data.message);
+                        if(data['success']){
+                          toastr.success(data['success']);
+                          setTimeout(() => {
+                            location.reload();
+                          }, 5000);
+                        
+                        }
+                        else if (data['error']) {
+                          $.each(data.error, function(index, msg){
+                            toastr.error(msg);
+                          })
+                          // toastr.error(data['error']);
+                      } else {
+                          toastr.error('Whoops Something went wrong!!');
+                      }
+                        
 
+                    },
+                    error: function (data) {
+                          toastr.error(data.error);
+                    }
+                });
+
+            });
 });
 
 </script>
