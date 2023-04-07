@@ -2,8 +2,8 @@
     <section class="sticky_header header_menu_col">
       <div class="header_menu">
         <div class="container-fluid">
-          <a href="index.html" class="mobile_logo">
-            <img src="images/logo.png" class="img-fluid" alt="title">
+          <a href="{{ url('/') }}" class="mobile_logo">
+            <img src="{{ $setting->getSiteLogoUrl() }}" class="img-fluid" alt="{{$setting->site_title}}">
           </a>
           <div class="header_main">
             <div class="sidemenu sidemenu-1 d-lg-none d-md-block">
@@ -14,8 +14,8 @@
              
               <nav id="mobile-menu" class="p-0 d-flex align-items-center navbar navbar-expand-md navbar-light">
                 
-                <a href="index.html" class="desktop_logo">
-                  <img src="images/logo.png" class="img-fluid" alt="title">
+                <a href="{{ url('/') }}" class="desktop_logo">
+                  <img src="{{ $setting->getSiteLogoUrl() }}" class="img-fluid" alt="{{$setting->site_title}}">
                 </a>
                 <ul class="navbar-nav">
                   <li><a href="index.html">Home </a></li>

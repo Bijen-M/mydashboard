@@ -14,17 +14,16 @@
           <div class="row align-items-center">
             <div class="col* col-md-8 col-lg-8 image_section map_section">
               <div class="product_wrapper">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.108740078312!2d85.32550241455586!3d27.68303383316797!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb19b897a2551f%3A0x5a534a43f3c61d3d!2sSpices%20Research%20and%20Consulting%20Pvt.%20Ltd.!5e0!3m2!1sen!2snp!4v1657450048196!5m2!1sen!2snp" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                {!! $setting->site_google_map_link !!}
               </div>
             </div>
 
             <div class="col* col-md-4 col-lg-4 infos_section">
               <div class="infos_contact">
-                <h3>Aarshi Associates</h3>
-                <p>UN Park, Lalitpur</p>
-                <p>Manidown Marg-11</p>
-                <p>+31 (0)478 746 016</p>
-                <p>info.aarshiassociates@gmail.com</p>
+                <h3>{{ $setting->site_title }}</h3>
+                <p>{{ $setting->site_address }}</p>
+                <p>{{ $setting->site_contact }}</p>
+                <p>{{ $setting->site_email }}</p>
               </div>
 
        
@@ -98,7 +97,7 @@
             <div class="col* col-md-6 col-lg-6 contact_right">
               <div class="contact_fig content_fig">
                 <figure>
-                  <img src="images/contact.jpg" class="w-100" alt="title">
+                  <img src="{{ $setting->getContactImageUrl() }}" class="w-100" alt="{{ $setting->site_title }}">
                 </figure>
 
               </div>

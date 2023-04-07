@@ -274,13 +274,13 @@
           <div class="row align-items-center">
             <div class="col* col-md-6 col-lg-6 image_section">
               <div class="product_wrapper">
-                <img src="images/touch.jpg" alt="title" class="img-fluid">
+                <img src="{{ $setting->getContactImageUrl()}}" alt="{{ $setting->site_title }}" class="img-fluid">
               </div>
             </div>
 
             <div class="col* col-md-6 col-lg-6 infos_section">
               <div class="content_infos_contact">
-                <p>Do you have building plans or do you want to know more about building costs? Let's get acquainted!</p>
+                <p>{{$setting->contact_message}}</p>
                 <div class="theme_btn">
                   <a href="{{ route('contact.us') }}"><span>Get In Touch</span><i class="bi bi-arrow-right"></i></a>
                 </div>
