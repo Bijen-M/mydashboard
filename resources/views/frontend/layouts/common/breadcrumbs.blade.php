@@ -1,5 +1,5 @@
 <section class="breadcrumb_main">
-    <div class="breadcrumb_bg" style="background: url(images/breadcrumb.jpg) no-repeat;background-size: cover;">
+    <div class="breadcrumb_bg" style="background: url({{ $setting->getBreadcrumbImageUrl()}}) no-repeat;background-size: cover;">
       <div class="overlay"></div>
       <div class="breadcrumb_content">
         <div class="container">

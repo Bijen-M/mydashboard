@@ -204,3 +204,9 @@ $submenu = isset($submenu) ? $submenu : '';
     </li>
   </ul>
 </li>
+<li  class="{{($menu=='settings' && $submenu=='settings' ? 'active':'')}}">
+  <a href="{{route('settings.index')}}">
+    <i class="ri-settings-2-line"></i>
+    <span class="menu-item">Settings</span>
+  </a>
+</li>

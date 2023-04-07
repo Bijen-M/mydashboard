@@ -11,6 +11,7 @@ use App\Http\Controllers\ContactUsController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\VacancyController;
+use App\Http\Controllers\SettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -71,4 +72,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('contactus', ContactUsController::class);
     Route::resource('vacancy', VacancyController::class);
     Route::get('services/{service}/edit', [ServiceController::class,'edit'])->name('services.edit');
+    Route::get('/settings', [SettingsController::class,'index'])->name('settings.index');
+    // Route::post('/settings', [SettingsController::class,'update'])->name('settings.update');
+    Route::resource('/settings', SettingsController::class)->only(['index', 'update']);
 });

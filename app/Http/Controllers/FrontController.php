@@ -11,6 +11,7 @@ use App\Models\Image;
 use App\Models\Service;
 use App\Models\Project;
 use App\Models\ProjectType;
+use App\Models\Settings;
 use App\Models\Vacancy;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -21,6 +22,10 @@ class FrontController extends Controller
     protected $about_us_section_II=2;
     protected $about_us_page_multiple_images = 3;
     
+    public function __construct(Settings $setting)
+    {
+        $this->setting = $setting;
+    }
 
     public function index()
     {
@@ -33,6 +38,7 @@ class FrontController extends Controller
         $data['project_third'] = Project::where('status', '1')->latest()->skip(2)->take(1)->first();
         $data['project_current_first'] = Project::where('status', '1')->where('is_current','1')->first();
         $data['project_current_second'] = Project::where('status', '1')->where('is_current','1')->skip(1)->first();
+        $data['setting'] = $this->setting->first();
         return view('frontend.homepage', $data);
     }
 
@@ -44,7 +50,7 @@ class FrontController extends Controller
         $data['aboutus_section_I'] = AboutUs::where('type',$this->about_us_section_I)->latest()->first();
         $data['aboutus_section_II'] = AboutUs::where('type',$this->about_us_section_II)->latest()->first();
         $data['aboutus_section_III'] = AboutUs::where('type',$this->about_us_page_multiple_images)->latest()->first();
-      
+        $data['setting'] = $this->setting->first();
         return view('frontend.aboutus',$data);
     }
 
@@ -55,6 +61,7 @@ class FrontController extends Controller
         $data['breadcrumb'].= '<li class="breadcrumb-item active" aria-current="page">Service</li>';
         $data['service'] = $service = Service::where('slug', $slug)->first();
         $data['service_images'] = Image::where('fk_service',$service->id)->get();
+        $data['setting'] = $this->setting->first();
         return view('frontend.service_detail', $data);
     }
 
@@ -65,6 +72,7 @@ class FrontController extends Controller
         $data['breadcrumb'].= '<li class="breadcrumb-item active" aria-current="page">Project</li>';
         $data['project_type'] = ProjectType::where('status','1')->get();
         $data['projects'] =  Project::where('status', '1')->get();
+        $data['setting'] = $this->setting->first();
         return view('frontend.project_list', $data);
     }
     
@@ -76,6 +84,7 @@ class FrontController extends Controller
         $data['breadcrumb'].= '<li class="breadcrumb-item active" aria-current="page">Project Detail</li>';
         $data['project'] = $project = Project::where('slug', $slug)->first();
         $data['project_images'] = Image::where('fk_project',$project->id)->get();
+        $data['setting'] = $this->setting->first();
         return view('frontend.project_detail', $data);
     }
 
@@ -84,6 +93,7 @@ class FrontController extends Controller
         $data['title'] = 'Contact Us';
         $data['breadcrumb'] = '<li class="breadcrumb-item"><a href=" ' . route('home') . ' ">Home</a></li>';
         $data['breadcrumb'].= '<li class="breadcrumb-item active" aria-current="page">Contact Us</li>';
+        $data['setting'] = $this->setting->first();
         return view('frontend.contactus', $data);
     }
 
@@ -117,7 +127,7 @@ class FrontController extends Controller
             'email' => $request->email
         ];
     
-        Mail::to('bzn1992@gmail.com')->send(new ContactEmail($details));
+        Mail::to($this->setting->site_email)->send(new ContactEmail($details));
             \DB::commit();
         return response()->json(['success' => 'Message sent successfully! We\'ll contact you soon.']);
         } catch (\Exception $e) {
@@ -133,6 +143,7 @@ class FrontController extends Controller
         $data['breadcrumb'] = '<li class="breadcrumb-item"><a href=" ' . route('home') . ' ">Home</a></li>';
         $data['breadcrumb'].= '<li class="breadcrumb-item active" aria-current="page">Vacancy</li>';
         $data['vacancies'] = Vacancy::where('status','1')->get();
+        $data['setting'] = $this->setting->first();
         return view('frontend.vacancy', $data);
     }
 }
