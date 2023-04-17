@@ -18,6 +18,8 @@ class CreateVacanciesTable extends Migration
             $table->string('title');
             $table->string('subtitle')->nullable();
             $table->string('description')->nullable();
+            $table->string('subtitle_s')->nullable();
+            $table->string('description_s')->nullable();
             $table->enum('status',[0,1])->default('1');
             $table->timestamps();
         });

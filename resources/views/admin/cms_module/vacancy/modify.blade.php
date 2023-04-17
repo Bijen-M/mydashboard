@@ -26,7 +26,6 @@
                                     @method('PUT')
                         @endif
                         @csrf
-                        {{-- {{dd($currentdata)}} --}}
                         <div class="form-group">
                             <label class="form__title">Title</label><span class="astrick">*</span>
                             <input type="text"
@@ -90,24 +89,53 @@
                                 <span class="text-danger">{{ $errors->first('description') }}</span>
                             </div>
                             @endif
-                            {{-- @if (isset($currentdata))
-                            @foreach (explode(',', $currentdata->description) as $description)
-                                <input type="text" value="{{ htmlspecialchars($description) }}" name="description[]"
-                                    class="form-control" placeholder="Enter Description">
-                                <span class="text-danger">{{ $errors->first('description') }}</span>
-                            @endforeach
-                            @endif --}}
-                            {{-- <input type="text"
-                                @if (isset($currentdata)) value="{{ $currentdata->description }}" @else value="{{ old('description') }}" @endif
-                                name="description[]" class="form-control" placeholder="Enter Description">
-                            <span class="text-danger">{{ $errors->first('description') }}</span> --}}
-                            
                         </div>
                         
                         <div class="form-group col-md-6 col-lg-6">
                         <button class="btn btn-sm btn-secondary " id="addMore">Add more</button>
                         </div>
                         </div>
+
+                        <div class="form-group">
+                            <label class="form__title">Subtitle Second</label><span class="astrick">*</span>
+                            <input type="text"
+                                @if (isset($currentdata)) value="{{ $currentdata->subtitle_s }}" @else value="{{ old('subtitle_s') }}" @endif
+                                name="subtitle_s" class="form-control" placeholder="Enter subtitle">
+                            <span class="text-danger">{{ $errors->first('subtitle_s') }}</span>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-6 col-lg-6" id="description_s">
+                                <label class="form__title">Description Second</label>
+                               
+                                @if (isset($currentdata))
+                                
+                                    @foreach (explode(',', $currentdata->description_s) as $description)
+                                    <div class="input-group mb-2">
+                                        <input type="text" value="{{ str_replace(['"', '[', ']' ,'\\'], '', $description)  }}" name="description_s[]"
+                                            class="form-control" placeholder="Enter Description">
+                                        
+                                        <span class="input-group-btn"> 
+                                            <button class="btn btn-sm btn-danger removeField" type="button"><i class="ri-delete-bin-line"></i></button>
+                                        </span>
+                                        <span class="text-danger">{{ $errors->first('description_s') }}</span>
+                                    </div>
+                                    @endforeach
+                                @else
+                                <div class="input-group mb-2">
+                                    <input type="text" value="{{ old('description_s') }}" name="description_s[]"
+                                        class="form-control" placeholder="Enter Second Description">
+                                        <span class="input-group-btn"> 
+                                            <button class="btn btn-sm btn-danger removeField" type="button"><i class="ri-delete-bin-line"></i></button>
+                                        </span>
+                                    <span class="text-danger">{{ $errors->first('description_s') }}</span>
+                                </div>
+                                @endif
+                            </div>
+                            
+                            <div class="form-group col-md-6 col-lg-6">
+                            <button class="btn btn-sm btn-secondary " id="addMore2">Add more</button>
+                            </div>
+                            </div>
                         <div class="mainBtn bntGrp btnLeft">
                             <input type="submit" name="submit" value="{{ isset($currentdetail) ? 'Update' : 'submit' }}"
                                 class="btn btn-primary">
@@ -141,22 +169,19 @@
         $(document).on('click', '.removeField', function() {
             $(this).closest('.input-group').remove();
         });
-            // $(".addMore").click(function() {
-            //     console.log('addmore');
-            // //     var html = `
-            // //     <div class="form-group">
-            // //         <label class="form__title">Description</label>
-            // //         <input type="text" name="description[]" class="form-control" placeholder="Enter Description">
-            // //         <span class="text-danger"></span>
-            // //         <button class="btn btn-secondary remove">Remove</button>
-            // //     </div>
-            // // `;
-            // //     $("#description").append(html);
-            
-            // });
-            // $(document).on("click", ".remove", function() {
-            //     $(this).closest(".form-group").remove();
-            // });
+            $('#addMore2').on('click', function(e) {
+                e.preventDefault();
+            var html = '<div class="input-group mb-2">' +
+                            '<input type="text" name="description_s[]" class="form-control" placeholder="Enter Second Description">' +
+                            '<span class="input-group-btn">' +
+                                '<button class="btn btn-sm btn-danger removeField" type="button"><i class="ri-delete-bin-line"></i></button>' +
+                            '</span>' +
+                        '</div>';
+            $('#description_s').append(html);
+        });
+        $(document).on('click', '.removeField', function() {
+            $(this).closest('.input-group').remove();
+        });
 
 
         });

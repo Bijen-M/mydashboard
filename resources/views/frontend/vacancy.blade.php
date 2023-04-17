@@ -26,23 +26,22 @@
                         @foreach (explode(',', $vacancy->description) as $description)
                             <li>{{ str_replace(['"', '[', ']' ,'\\'], '', $description) }}</li>
                         @endforeach
-                         
-                          {{-- <li>Should have more than 5 years of working experience in construction equipment.</li>
-                          <li>Ability and willingness to work in team & to work under pressure in remote area.</li> --}}
                         </ul>
                       </div>
-
-                      {{-- <div class="carrer_infos_list">
-                        <h5>Job Description: </h5>
+                    </div>
+                  </div>
+                </div>
+                <div id="tab{{$index}}" class="accordion-collapse collapse show" aria-labelledby="carrerOne" data-bs-parent="#carrerAccordion">
+                  <div class="accordion-body">
+                    <div class="carrer_infos">
+                      <div class="carrer_infos_list">
+                        <h5>{{$vacancy->subtitle_s}}: </h5>
                         <ul>
-                          <li>Analysis of monthly losses on account of mechanical failure, interruption, malfunction and efficiency.</li>
-                          <li>Perform breakdown analysis of equipment.</li>
-                          <li>Take preventive and corrective actions for controlling non conformity of services.</li>
-                          <li> Ensure availability of standby equipment and spare parts if needed.</li>
-                          <li>Make reports when required.</li>
-                          <li>Work in coordination with engineers.</li>
+                        @foreach (explode(',', $vacancy->description_s) as $description)
+                            <li>{{ str_replace(['"', '[', ']' ,'\\'], '', $description) }}</li>
+                        @endforeach
                         </ul>
-                      </div> --}}
+                      </div>
                     </div>
                   </div>
                 </div>
