@@ -61,19 +61,21 @@ class VacancyController extends Controller
             'title.unique' => 'Service has already been created',
             'status.required' => 'Status is required.',
         ];
-
+        // dd($request->all());
         $request->validate($rules, $msg);
         \DB::beginTransaction();
         try {
             $data['title'] = $request->title;
-            $data['subtitle'] = $request->title;
+            $data['subtitle'] = $request->subtitle;
+            $data['subtitle_s'] = $request->subtitle_s;
             $data['slug'] = Str::slug( $request->title, '-');
             $data['status'] = $request->status;
             $data['description'] = json_encode($request->description);
+            $data['description_s'] = json_encode($request->description_s);
             // $data['description'] = serialize($request->description);
             Vacancy::create($data);
             \DB::commit();
-            return back()->with('success_message', 'New Service created successfully!!!');
+            return back()->with('success_message', 'New Vacancy created successfully!!!');
         } catch (\Exception $e) {
             \DB::rollback();
             return back()->with('error_message', $e->getMessage());
@@ -136,7 +138,9 @@ class VacancyController extends Controller
             
             $vacancy->title = $request->title;
             $vacancy->subtitle = $request->subtitle;
-            $vacancy->description = json_encode($request->description);
+            $vacancy->subtitle_s = $request->subtitle_S;
+            $vacancy->description = json_encode($request->description); 
+            $vacancy->description_s = json_encode($request->description_s); 
             $vacancy->status = $request->status;
             $vacancy->save();
             \DB::commit();
