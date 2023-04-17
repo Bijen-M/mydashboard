@@ -210,6 +210,26 @@ $submenu = isset($submenu) ? $submenu : '';
     </li>
   </ul>
 </li>
+<li class="nav-item {{($menu=='user'?'has-sub sidebar-group-active open':'')}}">
+  <a href="{{ route('users.index')}}">
+    <i class="ri-menu-3-line"></i>
+    <span class="menu-title">Users</span>
+  </a>
+  <ul class="menu-content">
+    <li class="{{($menu=='user' && $submenu=='index'? 'active':'')}}">
+      <a href="{{ route('users.index')}}">
+        <i class=" "></i>
+        <span class="menu-item">All Users</span>
+      </a>
+    </li>
+    <li  class="{{($menu=='user' && $submenu=='create' ? 'active':'')}}">
+      <a href="{{route('users.create')}}">
+        <i class=" "></i>
+        <span class="menu-item">Create User</span>
+      </a>
+    </li>
+  </ul>
+</li>
 <li  class="{{($menu=='settings' && $submenu=='settings' ? 'active':'')}}">
   <a href="{{route('settings.index')}}">
     <i class="ri-settings-2-line"></i>

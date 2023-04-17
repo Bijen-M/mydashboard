@@ -12,6 +12,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\VacancyController;
 use App\Http\Controllers\SettingsController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -65,6 +66,8 @@ Route::prefix('admin')->middleware('auth')->group(function () {
     Route::resource('about-us', AboutUsController::class);
     Route::resource('banners', BannerController::class);
     Route::resource('services', ServiceController::class);
+    Route::resource('users', UserController::class);
+    
     Route::controller(ProjectController::class)->group(function () {
         Route::get('/project-type', 'projectTypeIndex')->name('project.type.index');
         Route::get('/project-type/create', 'projectTypeCreate')->name('project.type.create');

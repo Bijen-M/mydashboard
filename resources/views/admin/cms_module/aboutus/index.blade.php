@@ -47,9 +47,7 @@
                       <a href="#" data-toggle="modal" data-target="#deleteAboutUs{{$aboutus->id}}" class="btn btn-sm  bg-danger-transparent text-danger">
                         <i class="ri-delete-bin-line"></i>
                       </a>
-                      <a href="#"  class="btn btn-sm  bg-success-transparent text-success">
-                        <i class="ri-printer-line"></i>
-                      </a>
+                     
                     </div>
               <div class="modal fade" id="deleteAboutUs{{$aboutus->id}}" tabindex="-1" role="dialog" aria-labelledby="myModal2" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-zoom" role="document">

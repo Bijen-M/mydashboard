@@ -61,7 +61,6 @@ class VacancyController extends Controller
             'title.unique' => 'Service has already been created',
             'status.required' => 'Status is required.',
         ];
-        // dd($request->all());
         $request->validate($rules, $msg);
         \DB::beginTransaction();
         try {

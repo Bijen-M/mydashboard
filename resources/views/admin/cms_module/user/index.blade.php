@@ -1,12 +1,11 @@
 @extends('admin.cms_module.layouts.master')
-
 @section('content')
 <div class="content__body">
     <div class="card">
       <div class="card-header cardHeaderFlex">
-        <h3 class="cardHeaderFlex__title mb-0"> Services </h3>
+        <h3 class="cardHeaderFlex__title mb-0">Users</h3>
         <div class="cardHeaderFlex__btn">
-          <a href="{{route('services.create')}}"><button class="btn btn-md btn-info">New Service<i class="ri-edit-box-line"></i> </button></a>
+          <a href="{{ route('users.create') }}"><button class="btn btn-md btn-info">New User<i class="ri-edit-box-line"></i> </button></a>
         </div>
       </div>
 
@@ -16,38 +15,28 @@
             <thead>
               <tr>
                 <th>SN</th>
-                <th>Title</th>
-                <th>Status</th>
+                <th>Name</th>
                 <th>Operation</th>
               </tr>
             </thead>
 
             <tbody>
-              @if(sizeof($services) > 0)
-                @foreach ($services as $idx => $service)
+              @if(sizeof($users) > 0)
+                @foreach ($users as $idx => $user)
                 <tr>
                   <td>{{++$idx}}</td>
-                  <td>{{ $service->title }}</td>
-                  <td>@if ($service->status =='1')
-                    Active
-                    @else
-                    Inactive
-                    @endif
-                </td>
+                  <td>{{ $user->name }}</td>
                   <td>
                     <div class="table__btn">
-                      <a href="{{ route('services.edit', $service) }}" class="btn btn-sm bg-primary-transparent text-primary">
+                      <a href="{{ route('users.edit', $user) }}" class="btn btn-sm bg-primary-transparent text-primary">
                         <i class="ri-edit-box-line"></i>
                       </a>
-                      <a href="#" class="btn btn-sm  bg-info-transparent text-info">
-                        <i class="ri-eye-line"></i>
-                      </a>
-                      <a href="#" data-toggle="modal" data-target="#deleteService{{$service->id}}" class="btn btn-sm  bg-danger-transparent text-danger">
+                      {{-- <a href="#" data-toggle="modal" data-target="#deletebanner{{$user->id}}" class="btn btn-sm  bg-danger-transparent text-danger">
                         <i class="ri-delete-bin-line"></i>
-                      </a>
+                      </a> --}}
                      
                     </div>
-              <div class="modal fade" id="deleteService{{$service->id}}" tabindex="-1" role="dialog" aria-labelledby="myModal2" aria-hidden="true">
+              {{-- <div class="modal fade" id="deletebanner{{$user->id}}" tabindex="-1" role="dialog" aria-labelledby="myModal2" aria-hidden="true">
                 <div class="modal-dialog modal-dialog-centered modal-dialog-zoom" role="document">
                   <div class="modal-content">
                     <div class="text-right cross"> 
@@ -57,7 +46,7 @@
                     </div>
                     
                     <form
-                    action="{{ route('services.destroy', $service) }}"
+                    action="{{ route('users.destroy', $user->id) }}"
                     method="POST">
                     @csrf
                     @method('DELETE')
@@ -66,7 +55,7 @@
                         <i class="ri-information-fill"></i>
                       </div>
 
-                      <h4>Are you sure want to delete this service?</h4>
+                      <h4>Are you sure want to delete this project type?</h4>
                     </div>
 
                     <div class="modal-footer custom">
@@ -82,7 +71,7 @@
                     </form>
                   </div>
                 </div>
-              </div>
+              </div> --}}
                   </td>
                 </tr>
                 @endforeach
