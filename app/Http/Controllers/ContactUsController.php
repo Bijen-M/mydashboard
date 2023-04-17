@@ -17,8 +17,7 @@ class ContactUsController extends Controller
         $data['title'] = 'Contact Us';
         $data['menu'] = 'contactus';
         $data['submenu'] = 'index';
-        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
-        $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' ">CMS Dashboard</i></a></li>';
+        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Contacts</li>';
         $data['sidebar'] = 'cms_sidebar';
         $data['contacts'] = ContactUs::all();

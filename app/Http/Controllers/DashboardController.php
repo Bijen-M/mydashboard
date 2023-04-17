@@ -20,7 +20,7 @@ class DashboardController extends Controller
     public function cms_module()
     {
         $data['title'] = 'CMS Dashboard';
-        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
+        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">CMS Dashboard</li>';
         $data['sidebar'] = 'cms_sidebar';
         $data['projects'] = Project::where('status','1')->get();
