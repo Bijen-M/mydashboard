@@ -21,7 +21,8 @@ class FrontController extends Controller
     protected $about_us_section_I=1;
     protected $about_us_section_II=2;
     protected $about_us_page_multiple_images = 3;
-    
+    protected $setting;
+
     public function __construct(Settings $setting)
     {
         $this->setting = $setting;

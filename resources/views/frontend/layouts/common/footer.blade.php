@@ -22,13 +22,14 @@
             </div>
 
             <div class="footer_menu">
-              <ul>
+              {{-- <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Services</a></li>
                 <li><a href="#">Project</a></li>
                 <li><a href="#">Vaccancy</a></li>
-              </ul>
+              </ul> --}}
+              {!! navs('footer-menu', 'navbar-nav', 'navbar-nav') !!}
             </div>
           </div>
 

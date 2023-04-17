@@ -20,7 +20,8 @@ class CreateMenuItemsTable extends Migration
             $table->string('slug');
             $table->string('type');
             $table->string('target')->nullable();
-            $table->integer('menu_id');
+            $table->integer('parent_id');
+            $table->integer('sortorder');
             $table->timestamps();
         });
     }
