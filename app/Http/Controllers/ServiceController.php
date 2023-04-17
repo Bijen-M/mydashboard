@@ -20,8 +20,7 @@ class ServiceController extends Controller
         $data['title'] = 'Services';
         $data['menu'] = 'services';
         $data['submenu'] = 'index';
-        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
-        $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' ">CMS Dashboard</i></a></li>';
+        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Services</li>';
         $data['sidebar'] = 'cms_sidebar';
         $data['services'] = Service::all();
@@ -38,8 +37,7 @@ class ServiceController extends Controller
         $data['title'] = 'Services';
         $data['menu'] = 'services';
         $data['submenu'] = 'create';
-        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
-        $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' ">CMS Dashboard</i></a></li>';
+        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('services.index') . ' ">All Services</i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Create New Service</li>';
         $data['sidebar'] = 'cms_sidebar';
@@ -138,8 +136,7 @@ class ServiceController extends Controller
         $data['title'] = 'Services';
         $data['menu'] = 'services';
         $data['submenu'] = 'create';
-        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
-        $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' ">CMS Dashboard</i></a></li>';
+        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('services.index') . ' ">All Services</i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Edit</li>';
         $data['sidebar'] = 'cms_sidebar';

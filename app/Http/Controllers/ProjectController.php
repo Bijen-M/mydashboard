@@ -21,8 +21,7 @@ class ProjectController extends Controller
         $data['title'] = 'Project Type';
         $data['menu'] = 'projecttype';
         $data['submenu'] = 'index';
-        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
-        $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' ">CMS Dashboard</i></a></li>';
+        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Project Type</li>';
         $data['sidebar'] = 'cms_sidebar';
         $data['project_types'] = ProjectType::all();
@@ -39,8 +38,7 @@ class ProjectController extends Controller
         $data['title'] = 'Project Type';
         $data['menu'] = 'projecttype';
         $data['submenu'] = 'create';
-        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
-        $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' ">CMS Dashboard</i></a></li>';
+        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Project Type</li>';
         $data['sidebar'] = 'cms_sidebar';
         return view('admin.cms_module.project_type.modify',$data);
@@ -101,8 +99,7 @@ class ProjectController extends Controller
         $data['title'] = 'Project Type';
         $data['menu'] = 'projecttype';
         $data['submenu'] = 'create';
-        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
-        $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' ">CMS Dashboard</i></a></li>';
+        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Project Type</li>';
         $data['sidebar'] = 'cms_sidebar';
         $data['project_type'] = $projectType;
@@ -169,8 +166,7 @@ class ProjectController extends Controller
         $data['title'] = 'Projects';
         $data['menu'] = 'projects';
         $data['submenu'] = 'index';
-        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
-        $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' ">CMS Dashboard</i></a></li>';
+        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">projects</li>';
         $data['sidebar'] = 'cms_sidebar';
         $data['projects'] = Project::all();
@@ -186,8 +182,7 @@ class ProjectController extends Controller
         $data['title'] = 'Projects';
         $data['menu'] = 'projects';
         $data['submenu'] = 'create';
-        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
-        $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' ">CMS Dashboard</i></a></li>';
+        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('projects.index') . ' ">All projects</i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Create New Project</li>';
         $data['sidebar'] = 'cms_sidebar';
@@ -293,8 +288,7 @@ class ProjectController extends Controller
         $data['title'] = 'Projects';
         $data['menu'] = 'projects';
         $data['submenu'] = 'create';
-        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
-        $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' ">CMS Dashboard</i></a></li>';
+        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('projects.index') . ' ">All Projects</i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Edit</li>';
         $data['sidebar'] = 'cms_sidebar';

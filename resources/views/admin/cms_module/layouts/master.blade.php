@@ -25,7 +25,7 @@
         <div class="navbar-header">
             <ul class="nav navbar-nav flex-row">
                 <li class="nav-item mr-auto"><a class="navbar-brand" href="index.html">
-                        <div class="brand-logo"><img class="logo" src="images/logo.png" /></div>
+                        {{-- <div class="brand-logo"><img class="logo" src="images/logo.png" /></div> --}}
                         <h2 class="brand-text mb-0">{{ auth()->user()->name }}</h2>
                     </a></li>
                 <li class="nav-item nav-toggle">

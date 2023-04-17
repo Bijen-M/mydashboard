@@ -21,12 +21,12 @@
                   <div class="user-nav d-sm-flex d-none">
                     <span class="user-name">{{auth()->user()->name}}</span>
                   </div>
-                  <span>
+                  {{-- <span>
                     <img class="rounded-circle" src="images/avatar-s-11.jpg" alt="avatar" height="40" width="40">
-                  </span>
+                  </span> --}}
                 </a>
                   <div class="dropdown-menu dropdown-menu-right pb-0">
-                    <a class="dropdown-item" href="#"><i class="ri-user-3-line"></i> Edit Profile</a>
+                    <a class="dropdown-item" href="{{ route('users.edit', auth()->user())}}"><i class="ri-user-3-line"></i> Edit Profile</a>
                     <div class="dropdown-divider mb-0"></div>
                     <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();"><i class="ri-logout-circle-r-line mr-50"></i> Logout</a>

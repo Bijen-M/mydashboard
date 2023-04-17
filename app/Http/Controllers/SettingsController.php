@@ -17,8 +17,7 @@ class SettingsController extends Controller
         $data['menu'] = 'settings';
         $data['submenu'] = 'edit';
         $data['sidebar'] = 'cms_sidebar';
-        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
-        $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' ">CMS Dashboard</i></a></li>';
+        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Settings</li>';
         $data['setting'] = Settings::first();
         return view('admin.cms_module.settings',$data);

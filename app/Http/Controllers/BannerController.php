@@ -18,7 +18,7 @@ class BannerController extends Controller
         $data['title'] = 'Banners';
         $data['menu'] = 'banner';
         $data['submenu'] = 'index';
-        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
+        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Banners</li>';
         $data['sidebar'] = 'cms_sidebar';
         $data['banners'] = Banner::all();
@@ -35,8 +35,7 @@ class BannerController extends Controller
         $data['title'] = 'Banners';
         $data['menu'] = 'banner';
         $data['submenu'] = 'create';
-        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
-        $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' ">CMS Dashboard</i></a></li>';
+        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('banners.index') . ' ">All Banners</i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Create New Banner</li>';
         $data['sidebar'] = 'cms_sidebar';
@@ -109,8 +108,7 @@ class BannerController extends Controller
         $data['title'] = 'Banners';
         $data['menu'] = 'banner';
         $data['submenu'] = 'create';
-        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
-        $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' ">CMS Dashboard</i></a></li>';
+        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('banners.index') . ' ">All Banners</i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Edit Banner</li>';
         $data['sidebar'] = 'cms_sidebar';

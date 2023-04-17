@@ -17,8 +17,8 @@ class UserController extends Controller
         $data['title'] = 'User';
         $data['menu'] = 'user';
         $data['submenu'] = 'index';
-        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
-        $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' ">CMS Dashboard</i></a></li>';
+        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
+        
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">User</li>';
         $data['sidebar'] = 'cms_sidebar';
         $data['users'] = User::all();
@@ -35,8 +35,8 @@ class UserController extends Controller
         $data['title'] = 'User';
         $data['menu'] = 'user';
         $data['submenu'] = 'create';
-        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
-        $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' ">CMS Dashboard</i></a></li>';
+        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
+        
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">User</li>';
         $data['sidebar'] = 'cms_sidebar';
         return view('admin.cms_module.user.modify',$data);
@@ -100,8 +100,8 @@ class UserController extends Controller
         $data['title'] = 'User';
         $data['menu'] = 'user';
         $data['submenu'] = 'create';
-        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
-        $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' ">CMS Dashboard</i></a></li>';
+        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
+        
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">User</li>';
         $data['sidebar'] = 'cms_sidebar';
         $data['currentdata'] = $user;

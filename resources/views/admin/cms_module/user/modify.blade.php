@@ -6,7 +6,7 @@
             <div class="col* col-md-6 col-lg-6">
                 <div class="card">
                     <div class="card-header cardHeaderFlex">
-                        <h3 class="cardHeaderFlex__title mb-0">Create New User</h3>
+                        <h3 class="cardHeaderFlex__title mb-0">{{isset($currentdata) ? 'Edit User' : 'Create New User'}}</h3>
                     </div>
 
                     <div class="card-body">

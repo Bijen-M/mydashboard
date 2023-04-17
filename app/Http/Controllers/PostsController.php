@@ -11,7 +11,7 @@ class PostsController extends Controller
         $data['title'] = 'Posts';
         $data['menu'] = 'posts';
         $data['submenu'] = 'index';
-        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
+        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Posts</li>';
         $data['sidebar'] = 'cms_sidebar';
         return view('admin.cms_module.posts.index', $data);
@@ -21,7 +21,7 @@ class PostsController extends Controller
         $data['menu'] = 'posts';
         $data['submenu'] = 'create';
         $data['categories'] = Category::where('status','1')->get();
-        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
+        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Create Post</li>';
         $data['sidebar'] = 'cms_sidebar';
         return view('admin.cms_module.posts.modify', $data);
