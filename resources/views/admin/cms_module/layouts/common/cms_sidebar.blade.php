@@ -40,6 +40,12 @@ $submenu = isset($submenu) ? $submenu : '';
     </li>
   </ul>
 </li> --}}
+<li  class="{{($menu=='menu' ? 'active':'')}}">
+  <a href="{{route('menus.index')}}">
+    <i class="ri-settings-2-line"></i>
+    <span class="menu-item">Menu</span>
+  </a>
+</li>
 <li class="nav-item {{($menu=='banner'?'has-sub sidebar-group-active open':'')}}">
   <a href="{{ route('banners.index')}}">
     <i class="ri-image-line"></i>

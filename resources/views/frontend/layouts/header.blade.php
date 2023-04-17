@@ -17,22 +17,9 @@
                 <a href="{{ url('/') }}" class="desktop_logo">
                   <img src="{{ $setting->getSiteLogoUrl() }}" class="img-fluid" alt="{{$setting->site_title}}">
                 </a>
-                <ul class="navbar-nav">
-                  <li><a href="index.html">Home </a></li>
-                  <li><a href="about.html">About Us</a></li>
-                  <li class="menu-item-has-children"><a href="javascript:void(0)">Services</a>
-                    <ul class="sub-menu">
-                        <li><a href="service-detail.html">Architect </a></li>
-                        <li><a href="service-detail.html">Engineer</a></li>
-                        <li><a href="service-detail.html">Planner</a></li>
-                        <li><a href="service-detail.html">Vastu Sastra</a></li>
-                    </ul>
-                  </li>
-                  <li><a href="project-list.html">Projects</a></li>
-                  <li><a href="vacancy.html">Vacancy</a></li>
-                  <li><a href="contact.html">Contact Us </a></li>
-                  
-                </ul>
+               
+                  {!! navs('main-menu', 'navbar-nav', 'navbar-nav') !!}
+                
 
                 
               </nav>

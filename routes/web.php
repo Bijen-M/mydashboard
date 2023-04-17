@@ -47,8 +47,14 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/cms-dashboard', 'cms_module')->name('cms.dashboard');
     });
     Route::controller(MenuController::class)->group(function () {
-        Route::get('/menus', 'index')->name('menus');
-        Route::post('/create-menu', 'store')->name('menus.store');
+        Route::get('/menus', 'index')->name('menus.index');
+        Route::get('/menus/create', 'create')->name('menus.create');
+        Route::post('/menus/create', 'store')->name('menus.store');
+        Route::get('/menus/edit/{menu}', 'edit')->name('menus.edit');
+        Route::put('/menus/update/{menu}', 'update')->name('menus.update');
+        Route::delete('/menus/delete/{menu}', 'delete')->name('menus.destroy');
+        Route::get('/menus/{menu}/children', 'children')->name('menus.children.index');
+        Route::post('/menus/updateorder', 'updateOrder')->name('menus.sortorder');
     });
     Route::controller(PostsController::class)->group(function () {
         // Route::get('/create', 'create')->name('post');
