@@ -32,8 +32,10 @@
     @endif
 
     <main>
+      
       <section id="about_us" class="about_us section_top">
         <div class="container-fluid">
+          @if(isset($aboutus_section_I))
           <div class="row align-items-center">
             <div class="col* col-md-8 col-lg-8 about_left">
               <div class="title_head">
@@ -60,9 +62,12 @@
               </div>
             </div>
           </div>
+          @endif
         </div>
       </section>
+     
 
+     
       <section id="construction_section" class="construction_sec section_top">
         <div class="container-fluid">
           <div class="title_head">
@@ -71,7 +76,7 @@
               <a href="{{ route('projects.list') }}" class="btn btn_theme_outline">view all</a>
             </div>
           </div>
-
+          @if($project_current_first && $project_current_second)
           <div class="row">
             <div class="col* col-md-6 col-lg-6 construction_list">
               <div class="construction_block product_block">
@@ -119,9 +124,12 @@
               </div>
             </div>
           </div>
+          @endif
         </div>
       </section>
+      
 
+      @if($aboutus_section_II)
       <section id="quality_content" class="quality_content section_top">
         <div class="container-fluid">
           <div class="row align-items-center">
@@ -148,6 +156,7 @@
           </div>
         </div>
       </section>
+      @endif
 
       @if (count($services)>0)
       <section id="services_section" class="services_sec section_top">
@@ -186,6 +195,7 @@
       </section>
       @endif
 
+      
       <section id="project_section" class="project_section section_top">
         <div class="container-fluid">
           <div class="title_head">
@@ -194,7 +204,7 @@
               <a href="{{ route('projects.list') }}" class="btn btn_theme_outline">view all project</a>
             </div>
           </div>
-
+          @if($project_first && $project_second)
           <div class="row align-items-center">
             <div class="col* col-md-6 col-lg-6 project_list">
               <div class="project_block product_block">
@@ -266,8 +276,10 @@
             </div>
 
           </div>
+          @endif
         </div>
       </section>
+     
 
       <section id="gettouch_section" class="gettouch_section section_top">
         <div class="container-fluid">
