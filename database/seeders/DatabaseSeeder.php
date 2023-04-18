@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => bcrypt('123456'),
             'email_verified_at' => '2023-04-18 00:00:00',
-            'status' => '1'
         ]);
     }
 }
