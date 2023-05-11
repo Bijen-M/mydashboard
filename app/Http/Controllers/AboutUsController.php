@@ -230,7 +230,7 @@ class AboutUsController extends Controller
             }
             $aboutUs->delete();
             \DB::commit();
-            return back()->with('success_message', 'Banner Deleted Successfully!!!');
+            return back()->with('success_message', 'About Us heading Deleted Successfully!!!');
         } catch (\Exception $e) {
             \DB::rollback();
             return back()->with('error_message', $e->getMessage());

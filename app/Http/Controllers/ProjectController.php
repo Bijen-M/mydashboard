@@ -58,7 +58,7 @@ class ProjectController extends Controller
         ];
         $msg = [
             'title.required' => 'Title is required.',
-            'title.unique' => 'Service has already been created',
+            'title.unique' => 'Project has already been created',
             'status.required' => 'Status is required.',
         ];
 
@@ -70,7 +70,7 @@ class ProjectController extends Controller
             $data['status'] = $request->status;
             ProjectType::create($data);
             \DB::commit();
-            return back()->with('success_message', 'New Service created successfully!!!');
+            return back()->with('success_message', 'New Project created successfully!!!');
         } catch (\Exception $e) {
             \DB::rollback();
             return back()->with('error_message', $e->getMessage());
@@ -210,7 +210,7 @@ class ProjectController extends Controller
         ];
         $msg = [
             'title.required' => 'Title is required.',
-            'title.unique' => 'Service has already been created',
+            'title.unique' => 'Project has already been created',
             'status.required' => 'Status is required.',
             'year.required' => 'Year is required.',
             'architect.required' => 'Architect is required.',
@@ -317,7 +317,7 @@ class ProjectController extends Controller
         ];
         $msg = [
             'title.required' => 'Title is required.',
-            'title.unique' => 'Service has already been created',
+            'title.unique' => 'Project has already been created',
             'status.required' => 'Status is required.',
             'year.required' => 'Year is required.',
             'architect.required' => 'Architect is required.',
@@ -400,7 +400,7 @@ class ProjectController extends Controller
             }
             $project->delete();
             \DB::commit();
-            return back()->with('success_message', 'Service Deleted Successfully!!!');
+            return back()->with('success_message', 'Project Deleted Successfully!!!');
         } catch (\Exception $e) {
             \DB::rollback();
             return back()->with('error_message', $e->getMessage());

@@ -128,7 +128,7 @@ class FrontController extends Controller
             'email' => $request->email
         ];
     
-        Mail::to($this->setting->site_email)->send(new ContactEmail($details));
+        Mail::to($request->email)->send(new ContactEmail($details));
             \DB::commit();
         return response()->json(['success' => 'Message sent successfully! We\'ll contact you soon.']);
         } catch (\Exception $e) {
