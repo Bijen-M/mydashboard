@@ -71,7 +71,6 @@ class VacancyController extends Controller
             $data['status'] = $request->status;
             $data['description'] = json_encode($request->description);
             $data['description_s'] = json_encode($request->description_s);
-            // $data['description'] = serialize($request->description);
             Vacancy::create($data);
             \DB::commit();
             return back()->with('success_message', 'New Vacancy created successfully!!!');
@@ -137,7 +136,7 @@ class VacancyController extends Controller
             
             $vacancy->title = $request->title;
             $vacancy->subtitle = $request->subtitle;
-            $vacancy->subtitle_s = $request->subtitle_S;
+            $vacancy->subtitle_s = $request->subtitle_s;
             $vacancy->description = json_encode($request->description); 
             $vacancy->description_s = json_encode($request->description_s); 
             $vacancy->status = $request->status;

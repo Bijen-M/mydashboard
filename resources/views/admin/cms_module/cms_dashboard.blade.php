@@ -10,7 +10,7 @@
                         <div class="dashboard__infos">
                             <span class="sub__title">Projects</span>
                             <h5 class="dashboard__count">{{ count($projects) }}</h5>
-                            <p>Total order for last 20 days</p>
+                            <p>Total number of active projects</p>
                         </div>
 
                         <div class="dashboard__icon pos__abs">
@@ -25,9 +25,9 @@
                 <a href="#">
                     <div class="dashboard__box dashboard__c2">
                         <div class="dashboard__infos">
-                            <span class="sub__title">New User</span>
-                            <h5 class="dashboard__count">100</h5>
-                            <p>Total number of user for last 20 days</p>
+                            <span class="sub__title">Services</span>
+                            <h5 class="dashboard__count">{{ count($services) }}</h5>
+                            <p>Total number of active services</p>
                         </div>
 
                         <div class="dashboard__icon pos__abs">

@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Str;
 use App\Models\Image;
+use Exception;
 
 class ProjectController extends Controller
 {
@@ -58,7 +59,7 @@ class ProjectController extends Controller
         ];
         $msg = [
             'title.required' => 'Title is required.',
-            'title.unique' => 'Service has already been created',
+            'title.unique' => 'Project has already been created',
             'status.required' => 'Status is required.',
         ];
 
@@ -70,7 +71,7 @@ class ProjectController extends Controller
             $data['status'] = $request->status;
             ProjectType::create($data);
             \DB::commit();
-            return back()->with('success_message', 'New Service created successfully!!!');
+            return back()->with('success_message', 'New Project created successfully!!!');
         } catch (\Exception $e) {
             \DB::rollback();
             return back()->with('error_message', $e->getMessage());
@@ -210,7 +211,7 @@ class ProjectController extends Controller
         ];
         $msg = [
             'title.required' => 'Title is required.',
-            'title.unique' => 'Service has already been created',
+            'title.unique' => 'Project has already been created',
             'status.required' => 'Status is required.',
             'year.required' => 'Year is required.',
             'architect.required' => 'Architect is required.',
@@ -274,7 +275,16 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        $data['title'] = 'Projects';
+        $data['menu'] = 'projects';
+        $data['submenu'] = 'create';
+        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
+        $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('projects.index') . ' ">All projects</i></a></li>';
+        $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Project Images</li>';
+        $data['sidebar'] = 'cms_sidebar';
+        $data['project_type'] = ProjectType::where('status','1')->get();
+        $data['project'] = $project;
+        return view('admin.cms_module.projects.show', $data);
     }
 
     /**
@@ -317,7 +327,7 @@ class ProjectController extends Controller
         ];
         $msg = [
             'title.required' => 'Title is required.',
-            'title.unique' => 'Service has already been created',
+            'title.unique' => 'Project has already been created',
             'status.required' => 'Status is required.',
             'year.required' => 'Year is required.',
             'architect.required' => 'Architect is required.',
@@ -400,11 +410,26 @@ class ProjectController extends Controller
             }
             $project->delete();
             \DB::commit();
-            return back()->with('success_message', 'Service Deleted Successfully!!!');
+            return back()->with('success_message', 'Project Deleted Successfully!!!');
         } catch (\Exception $e) {
             \DB::rollback();
             return back()->with('error_message', $e->getMessage());
         }
+    }
+
+    public function imageDelete($id)
+    {
+        \DB::beginTransaction();
+        try{
+        $image = Image::findOrFail($id);
+        $image->delete();
+        \DB::commit();
+        return back()->with('success_message', 'Image Deleted Successfully!!!');
+        } catch(\Exception $e) {
+        \DB::rollback();
+            return back()->with('error_message', $e->getMessage());
+        }
+
     }
 
     public function saveCurrentProjects(Request $request)

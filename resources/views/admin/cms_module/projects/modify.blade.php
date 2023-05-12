@@ -1,5 +1,15 @@
 @extends('admin.cms_module.layouts.master')
-
+@section('header_resources')
+<style>
+    .project_image img {
+        width: 80%;
+        height: 350px;
+        object-fit: cover;
+        margin: 0 auto;
+        margin-left: 20px;
+    }
+</style>
+@endsection
 @section('content')
     <div class="content__body">
 
@@ -101,13 +111,30 @@
                                 <span class="text-danger">{{ $errors->first('image.*') }}</span>
                             </div>
                             <div class="mainBtn bntGrp btnLeft">
-                                <input type="submit" name="submit" value="{{(isset($currentdetail)?'Update':'submit')}}" class="btn btn-primary">
+                                <input type="submit" name="submit" value="{{(isset($currentdata)?'Update':'submit')}}" class="btn btn-primary">
                             </div>
                         </form>
-
+                       
                     </div>
                 </div>
             </div>
+            @if (isset($currentdata))
+            <div class="col* col-md-6 col-lg-6">
+                <div class="card">
+                    <div class="card-header cardHeaderFlex">
+                    <h3 class="cardHeaderFlex__title mb-0">Project Images</h3>
+                    </div>
+            
+                    <div class="card-body project_image">
+                    @foreach ($currentdata->projectImages as $image)
+                        <img src="{{ $image->getProjectImageUrl()}}" class="rounded" alt="title">
+                        <a href="{{route('project.image.delete', $image->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this image?')"> <i class="ri-close-circle-fill"></i></a>
+                    @endforeach
+                    
+                    </div>
+                </div>
+            </div>
+            @endif
         </div>
     </div>
 @endsection

@@ -6,7 +6,6 @@ if (!function_exists('navs')) {
 
     function navs($id = null, $tagId = null, $class = null) {
         $nav = Menu::whereSlug($id)->first();
-        // dd($nav);
         if ($nav) {
             $navs = $nav->children;
             $list = '<ul id="' . $tagId . '" class="' . $class . '">';
