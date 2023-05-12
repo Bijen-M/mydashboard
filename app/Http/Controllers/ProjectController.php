@@ -207,7 +207,7 @@ class ProjectController extends Controller
             'coverimage' => 'required|image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
             'image' => 'required',
             'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
-            'image' => 'max:5|min:2',
+            'image' => 'max:8|min:2',
         ];
         $msg = [
             'title.required' => 'Title is required.',
@@ -219,7 +219,7 @@ class ProjectController extends Controller
             'coverimage.required' => 'Cover Image is required',
             'image.*.image' => 'File must be an image',
             'coverimage.image' => 'File must be an image',
-            'image.*.max:5' => 'Only a maximum of 5 images can be uploaded',
+            'image.*.max:8' => 'Only a maximum of 8 images can be uploaded',
             'image.*.min' => 'At least 2 images should be uploaded'
         ];
 
@@ -322,7 +322,7 @@ class ProjectController extends Controller
             'year' => 'required',
             'architect' => 'required',
             'coverimage' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
-            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg,webp|max:2048',
+            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg,webp',
             'image' => 'max:5|min:2',
         ];
         $msg = [

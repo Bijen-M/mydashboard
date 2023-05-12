@@ -50,13 +50,9 @@ class AboutUsController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
         $rules = [
             'title' => 'required',
             'image.*' => 'required|image|mimes:jpg,jpeg,png,gif,webp|max:2048',
-            // 'image' => 'max:3',
-            // 'image' => 'min:1',
-            // 'image.*' => 'required|image|mimes:jpg,jpeg,png,gif,webp|max:2048',
             'type' =>'required'
         ];
         $msg = [
@@ -92,7 +88,6 @@ class AboutUsController extends Controller
                     }
                     else
                     {
-                    //   dd($images);
                         foreach ($images as $image) {
                         $filename = $image->getClientOriginalName();
                         $aboutUs->image = $filename;
@@ -115,10 +110,6 @@ class AboutUsController extends Controller
      * @param  \App\Models\AboutUs  $aboutUs
      * @return \Illuminate\Http\Response
      */
-    public function show(AboutUs $aboutUs)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -151,7 +142,7 @@ class AboutUsController extends Controller
         $rules = [
             'title' => 'required',
             'image' => 'max:3',
-            'image.*' => 'image|mimes:jpg,jpeg,png,gif,webp|max:2048',
+            'image.*' => 'image|mimes:jpg,jpeg,png,gif,webp',
         ];
         $msg = [
             'title.required' => 'Title is required.',
@@ -230,7 +221,7 @@ class AboutUsController extends Controller
             }
             $aboutUs->delete();
             \DB::commit();
-            return back()->with('success_message', 'About Us heading Deleted Successfully!!!');
+            return back()->with('success_message', 'About Us Deleted Successfully!!!');
         } catch (\Exception $e) {
             \DB::rollback();
             return back()->with('error_message', $e->getMessage());

@@ -127,10 +127,16 @@
             
                     <div class="card-body project_image">
                     @foreach ($currentdata->projectImages as $image)
-                        <img src="{{ $image->getProjectImageUrl()}}" class="rounded" alt="title">
-                        <a href="{{route('project.image.delete', $image->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this image?')"> <i class="ri-close-circle-fill"></i></a>
+                        
+                        {{-- <a href="{{route('project.image.delete', $image->id)}}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this image?')"> <i class="ri-close-circle-fill"></i></a> --}}
+                        <form action="{{route('project.image.delete', $image->id)}}" method="POST" onsubmit="return confirm('Are you sure you want to delete this image?')">
+                            @csrf
+                            @method('DELETE')
+                            <img src="{{ $image->getProjectImageUrl()}}" class="rounded" alt="title">
+                            <button type="submit" class="btn btn-danger"><i class="ri-close-circle-fill"></i></button>
+                        </form>
                     @endforeach
-                    
+                   
                     </div>
                 </div>
             </div>
