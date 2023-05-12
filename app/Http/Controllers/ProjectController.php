@@ -380,7 +380,7 @@ class ProjectController extends Controller
             $project->save();
             
             \DB::commit();
-            return back()->with('success_message', 'Project created successfully!!!');
+            return back()->with('success_message', 'Project updated successfully!!!');
         } catch (\Exception $e) {
             \DB::rollback();
             return back()->with('error_message', $e->getMessage());
