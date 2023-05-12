@@ -57,12 +57,6 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/menus/{menu}/children', 'children')->name('menus.children.index');
         Route::post('/menus/updateorder', 'updateOrder')->name('menus.sortorder');
     });
-    Route::controller(PostsController::class)->group(function () {
-        // Route::get('/create', 'create')->name('post');
-        Route::get('/posts', 'index')->name('posts.index');
-        Route::get('/posts/create', 'postsCreate')->name('posts.create');
-        Route::post('/posts/submit', 'postsSubmit')->name('posts.submit');
-    });
     Route::resource('about-us', AboutUsController::class);
     Route::resource('banners', BannerController::class);
     Route::resource('services', ServiceController::class);

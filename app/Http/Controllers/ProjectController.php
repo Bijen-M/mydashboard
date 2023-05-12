@@ -95,7 +95,7 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function projectTypeEdit(ProjectType $projectType)
+    public function projectTypeEdit($id)
     {
         $data['title'] = 'Project Type';
         $data['menu'] = 'projecttype';
@@ -103,7 +103,7 @@ class ProjectController extends Controller
         $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Project Type</li>';
         $data['sidebar'] = 'cms_sidebar';
-        $data['project_type'] = $projectType;
+        $data['currentdata'] = ProjectType::findOrFail($id);
         return view('admin.cms_module.project_type.modify', $data);
     }
 
@@ -116,7 +116,6 @@ class ProjectController extends Controller
      */
     public function projectTypeUpdate(Request $request, ProjectType $projectType)
     {
-
         $rules = [
             'title' => ['required', Rule::unique('project_types')],
             'status' => 'required',
@@ -135,7 +134,7 @@ class ProjectController extends Controller
             $projectType->status = $request->status;
             $projectType->save();
             \DB::commit();
-            return back()->with('success_message', 'New Project Type created successfully!!!');
+            return back()->with('success_message', 'Project Type updated successfully!!!');
         } catch (\Exception $e) {
             \DB::rollback();
             return back()->with('error_message', $e->getMessage());
