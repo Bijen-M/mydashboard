@@ -78,6 +78,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::post('/projects/select-current-projects', 'saveCurrentProjects')->name('project.current.save');
     });
     Route::resource('projects', ProjectController::class);
+    Route::get('projects/images/{id}', [ProjectController::class,'imageDelete'])->name('project.image.delete');
     Route::resource('contactus', ContactUsController::class);
     Route::resource('vacancy', VacancyController::class);
     Route::get('services/{service}/edit', [ServiceController::class,'edit'])->name('services.edit');

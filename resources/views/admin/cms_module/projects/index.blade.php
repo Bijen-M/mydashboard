@@ -76,7 +76,7 @@
                       <a href="{{ route('projects.edit', $project) }}" class="btn btn-sm bg-primary-transparent text-primary">
                         <i class="ri-edit-box-line"></i>
                       </a>
-                      <a href="#" class="btn btn-sm  bg-info-transparent text-info">
+                      <a href="{{ route('projects.show', $project)}}" class="btn btn-sm  bg-info-transparent text-info">
                         <i class="ri-eye-line"></i>
                       </a>
                       <a href="#" data-toggle="modal" data-target="#deleteProject{{$project->id}}" class="btn btn-sm  bg-danger-transparent text-danger">

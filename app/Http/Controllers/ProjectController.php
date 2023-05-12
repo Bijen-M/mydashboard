@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Str;
 use App\Models\Image;
+use Exception;
 
 class ProjectController extends Controller
 {
@@ -274,7 +275,16 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        $data['title'] = 'Projects';
+        $data['menu'] = 'projects';
+        $data['submenu'] = 'create';
+        $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
+        $data['breadcrumbs'] .= '<li class="breadcrumb-item"><a href=" ' . route('projects.index') . ' ">All projects</i></a></li>';
+        $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Project Images</li>';
+        $data['sidebar'] = 'cms_sidebar';
+        $data['project_type'] = ProjectType::where('status','1')->get();
+        $data['project'] = $project;
+        return view('admin.cms_module.projects.show', $data);
     }
 
     /**
@@ -405,6 +415,21 @@ class ProjectController extends Controller
             \DB::rollback();
             return back()->with('error_message', $e->getMessage());
         }
+    }
+
+    public function imageDelete($id)
+    {
+        \DB::beginTransaction();
+        try{
+        $image = Image::findOrFail($id);
+        $image->delete();
+        \DB::commit();
+        return back()->with('success_message', 'Image Deleted Successfully!!!');
+        } catch(\Exception $e) {
+        \DB::rollback();
+            return back()->with('error_message', $e->getMessage());
+        }
+
     }
 
     public function saveCurrentProjects(Request $request)
