@@ -304,7 +304,7 @@ class ProjectController extends Controller
         $data['sidebar'] = 'cms_sidebar';
         $data['currentdata'] = $project;
         $data['project_type'] = ProjectType::where('status','1')->get();
-        return view('admin.cms_module.Projects.modify', $data);
+        return view('admin.cms_module.projects.modify', $data);
     }
 
     /**
