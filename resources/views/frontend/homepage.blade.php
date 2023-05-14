@@ -43,7 +43,7 @@
               </div>
               <div class="about_infos content_infos">
                 <h4>{{$aboutus_section_I->subtitle}} </h4>
-                <p>{{$aboutus_section_I->description}} </p>
+                <p>{{ Str::limit($aboutus_section_I->description, 400)}} </p>
               </div>
 
               <div class="theme_btn">
