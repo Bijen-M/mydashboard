@@ -67,7 +67,7 @@ Route::prefix('admin')->middleware('auth')->group(function () {
         Route::get('/project-type/create', 'projectTypeCreate')->name('project.type.create');
         Route::post('/project-type/submit', 'projectTypeStore')->name('project.type.submit');
         Route::get('/project-type/{projecttype}/edit', 'projectTypeEdit')->name('project.type.edit');
-        Route::post('/project-type/{projecttype}', 'projectTypeUpdate')->name('project.type.update');
+        Route::put('/project-type/{projecttype}', 'projectTypeUpdate')->name('project.type.update');
         Route::delete('/project-type/{projecttype}', 'projectTypeDestroy')->name('project.type.destroy');
         Route::post('/projects/select-current-projects', 'saveCurrentProjects')->name('project.current.save');
     });

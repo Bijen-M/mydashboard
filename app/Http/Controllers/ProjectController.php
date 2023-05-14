@@ -114,10 +114,11 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function projectTypeUpdate(Request $request, ProjectType $projectType)
+    public function projectTypeUpdate(Request $request, $id)
     {
+        $projectType = ProjectType::findOrFail($id);
         $rules = [
-            'title' => ['required', Rule::unique('project_types')],
+            'title' => ['required', Rule::unique('project_types')->ignore($projectType)],
             'status' => 'required',
         ];
         $msg = [
