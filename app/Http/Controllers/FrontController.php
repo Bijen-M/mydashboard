@@ -61,6 +61,9 @@ class FrontController extends Controller
         $data['breadcrumb'] = '<li class="breadcrumb-item"><a href=" ' . route('home') . ' ">Home</a></li>';
         $data['breadcrumb'].= '<li class="breadcrumb-item active" aria-current="page">Service</li>';
         $data['service'] = $service = Service::where('slug', $slug)->first();
+        if (!$data['service']) {
+            abort(404);
+        }
         $data['service_images'] = Image::where('fk_service',$service->id)->get();
         $data['setting'] = $this->setting->first();
         return view('frontend.service_detail', $data);
@@ -84,6 +87,9 @@ class FrontController extends Controller
         $data['breadcrumb'] = '<li class="breadcrumb-item"><a href=" ' . route('projects.list') . ' ">All Projects</a></li>';
         $data['breadcrumb'].= '<li class="breadcrumb-item active" aria-current="page">Project Detail</li>';
         $data['project'] = $project = Project::where('slug', $slug)->first();
+        if (!$data['project']) {
+            abort(404);
+        }
         $data['project_images'] = Image::where('fk_project',$project->id)->get();
         $data['setting'] = $this->setting->first();
         return view('frontend.project_detail', $data);
@@ -140,9 +146,9 @@ class FrontController extends Controller
 
     public function vacancy()
     {
-        $data['title'] = 'Vacancy';
+        $data['title'] = 'Career';
         $data['breadcrumb'] = '<li class="breadcrumb-item"><a href=" ' . route('home') . ' ">Home</a></li>';
-        $data['breadcrumb'].= '<li class="breadcrumb-item active" aria-current="page">Vacancy</li>';
+        $data['breadcrumb'].= '<li class="breadcrumb-item active" aria-current="page">Career</li>';
         $data['vacancies'] = Vacancy::where('status','1')->get();
         $data['setting'] = $this->setting->first();
         return view('frontend.vacancy', $data);

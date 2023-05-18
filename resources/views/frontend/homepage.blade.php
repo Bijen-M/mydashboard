@@ -16,6 +16,7 @@
                     <div class="banner_title">
                       <h2>{{$banner->title}}</h2>
                     </div>
+                    <p>{{ $banner->description }}</p>
 
                   </div>
                 </div>

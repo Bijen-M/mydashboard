@@ -22,13 +22,6 @@
             </div>
 
             <div class="footer_menu">
-              {{-- <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Project</a></li>
-                <li><a href="#">Vaccancy</a></li>
-              </ul> --}}
               {!! navs('footer-menu', 'navbar-nav', 'navbar-nav') !!}
             </div>
           </div>
@@ -44,14 +37,14 @@
                   <a href="tel:{{$setting->site_contact}}">Phone</a>
                 </li>
                 <li>
-                  <a href="tel:{{$setting->whatsapp}}">Whats app</a>
+                  <a href="tel:{{$setting->whatsapp}}">Whatsapp</a>
                 </li>
               </ul>
             </div>
 
             <div class="footer_location">
               <p><label>{{ $setting->site_title }}</label></p>
-              <p>{{ $setting->site_address }}</p>
+              <a href="{{ $setting->googlemappage }}" target="__blank"><p>{{ $setting->site_address }}</p></a>
               
             </div>
 

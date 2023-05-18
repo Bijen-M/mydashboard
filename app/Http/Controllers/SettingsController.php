@@ -45,6 +45,7 @@ class SettingsController extends Controller
         $settings->site_address = $request->site_address;
         $settings->site_contact = $request->site_contact;
         $settings->site_google_map_link = $request->site_google_map_link;
+        $settings->googlemappage = $request->googlemappage;
         $settings->footer_message = $request->footer_message;
         $settings->footer_about_us = $request->footer_about_us;
         $settings->copyright = $request->copyright;

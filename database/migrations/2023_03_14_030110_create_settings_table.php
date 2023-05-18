@@ -26,6 +26,7 @@ class CreateSettingsTable extends Migration
             $table->string('site_address')->nullable();
             $table->string('site_contact')->nullable();
             $table->text('site_google_map_link')->nullable();
+            $table->text('googlemappage')->nullable();
             $table->text('footer_message')->nullable();
             $table->text('footer_about_us')->nullable();
             $table->text('disclaimer')->nullable();
