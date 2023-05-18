@@ -37,7 +37,7 @@ Route::get('/projects', [App\Http\Controllers\FrontController::class, 'projectLi
 Route::get('/projects/{slug}', [App\Http\Controllers\FrontController::class, 'projectDetail'])->name('project.detail');
 Route::get('/contact-us', [App\Http\Controllers\FrontController::class, 'contactUs'])->name('contact.us');
 Route::post('/contact-us', [App\Http\Controllers\FrontController::class, 'contactUsStore'])->name('contact.us.store');
-Route::get('/vacancy', [App\Http\Controllers\FrontController::class, 'vacancy'])->name('vacancy');
+Route::get('/career', [App\Http\Controllers\FrontController::class, 'vacancy'])->name('career');
 
 
 

@@ -12,22 +12,28 @@
         @method('PUT')
         @csrf
         <div class="row">
-          <div class="col* col-md-3 col-lg-3">
+          <div class="col* col-md-2 col-lg-2">
             <div class="form-group">
               <label class="form__title">Site Title</label>
               <input type="site_title" @if (isset($setting)) value="{{ $setting->site_title }}" @else value="{{ old('site_title') }}" @endif name="site_title" class="form-control" placeholder="Text">
             </div>
           </div>
-            <div class="col* col-md-4 col-lg-4">
+            <div class="col* col-md-3 col-lg-3">
               <div class="form-group">
                 <label class="form__title">Address</label>
                 <input type="site_address" @if (isset($setting)) value="{{ $setting->site_address }}" @else value="{{ old('site_address') }}" @endif name="site_address" class="form-control" placeholder="Address">
               </div>
             </div>
-            <div class="col* col-md-5 col-lg-5">
+            <div class="col* col-md-3 col-lg-3">
               <div class="form-group">
                 <label class="form__title">Facebook Link</label>
                 <input type="facebook" @if (isset($setting)) value="{{ $setting->facebook }}" @else value="{{ old('facebook') }}" @endif name="facebook" class="form-control" placeholder="Facebook">
+              </div>
+            </div>
+            <div class="col* col-md-4 col-lg-4">
+              <div class="form-group">
+                <label class="form__title">Google Map Page Link</label>
+                <input type="facebook" @if (isset($setting)) value="{{ $setting->googlemappage }}" @else value="{{ old('googlemappage') }}" @endif name="googlemappage" class="form-control" placeholder="Google Map Page Link">
               </div>
             </div>
             <div class="col* col-md-4 col-lg-4">
