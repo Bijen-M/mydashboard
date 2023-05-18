@@ -4,8 +4,7 @@ $submenu = isset($submenu) ? $submenu : '';
 ?>
 
 <li class="navigation-header"><span>CMS</span></li>
-
-<li  class="{{($menu=='menu' ? 'active':'')}}">
+<li  class="{{($menu_class=='menu' ? 'active':'')}}">
   <a href="{{route('menus.index')}}">
     <i class="ri-menu-line"></i>
     <span class="menu-item">Menu</span>
@@ -175,7 +174,7 @@ $submenu = isset($submenu) ? $submenu : '';
     </li>
   </ul>
 </li>
-<li  class="{{($menu=='settings' && $submenu=='settings' ? 'active':'')}}">
+<li  class="{{($menu=='settings' && $submenu=='edit' ? 'active':'')}}">
   <a href="{{route('settings.index')}}">
     <i class="ri-settings-2-line"></i>
     <span class="menu-item">Settings</span>

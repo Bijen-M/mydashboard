@@ -15,7 +15,7 @@ class MenuController extends Controller
     public function index()
     {
         $data['title'] = 'Menu';
-        $data['menu'] = 'menu';
+        $data['menu_class'] = 'menu';
         $data['submenu'] = 'menu';
         $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Menus</li>';
@@ -29,7 +29,7 @@ class MenuController extends Controller
     public function create()
     {
         $data['title'] = 'Menu';
-        $data['menu'] = 'menu';
+        $data['menu_class'] = 'menu';
         $data['submenu'] = 'menu';
         $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         
@@ -82,7 +82,7 @@ class MenuController extends Controller
     public function edit($id)
     {
         $data['title'] = 'Menu';
-        $data['menu'] = 'menu';
+        $data['menu_class'] = 'menu';
         $data['submenu'] = 'menu';
         $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         
@@ -132,7 +132,7 @@ class MenuController extends Controller
     }
     public function children($id){
         $data['title'] = 'Menu';
-        $data['menu'] = 'Menu';
+        $data['menu_class'] = 'menu';
         $data['submenu'] = 'index';
         $data['breadcrumbs'] = '<li class="breadcrumb-item"><a href=" ' . route('cms.dashboard') . ' "><i class="ri-home-4-line"></i></a></li>';
         $data['breadcrumbs'] .= '<li class="breadcrumb-item active" aria-current="page">Menus</li>';
