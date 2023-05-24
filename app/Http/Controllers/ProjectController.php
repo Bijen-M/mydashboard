@@ -151,10 +151,9 @@ class ProjectController extends Controller
     public function projectTypeDestroy($id)
     {
         $projectType = ProjectType::findOrFail($id);
-        $projects = Project::where('fk_project_type', $projectType->id)->where('status','1')->get();
         \DB::beginTransaction();
         try {
-            if(count($projects) > 0) {
+            if(count($projectType->project) > 0) {
                 return back()->with('error_message', 'This project type has active projects and cannot be deleted!');
             } else {
             $projectType->delete();
