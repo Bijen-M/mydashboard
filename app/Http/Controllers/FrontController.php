@@ -30,6 +30,7 @@ class FrontController extends Controller
 
     public function index()
     {
+        $data['title'] = $this->setting->first()->site_title;
         $data['aboutus_section_I'] = AboutUs::where('type',$this->about_us_section_I)->latest()->first();
         $data['aboutus_section_II'] = AboutUs::where('type',$this->about_us_section_II)->latest()->first();
         $data['banners'] = Banner::where('status', '1')->get();

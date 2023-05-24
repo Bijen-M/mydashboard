@@ -9,7 +9,8 @@
           @foreach ($banners as $banner)
           <div class="swiper-slide">
             <figure>
-              <img src="{{$banner->getBannerImageUrl()}}" alt="{{$banner->title}}" class="w-100">
+              <img src="{{$banner->getBannerImageUrl()}}" alt="{{$banner->title}}" class="w-100 desktop_image d-none d-md-block d-lg-block">
+              <img src="{{$banner->getBannerImageUrl()}}" alt="{{$banner->title}}" class="w-100 mobile_image d-block d-md-none d-lg-none">
               <div class="banner_content">
                 <div class="container">
                   <div class="banner_infos position-absolute">
